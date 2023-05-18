@@ -910,12 +910,14 @@ background-color: #201f1f;
 }
 /* form edit */
 .nform {
-  color: black;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
 
-
+.pdiv{
+  
+}
 
 /* form edit end */
 

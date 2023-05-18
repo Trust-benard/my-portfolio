@@ -581,6 +581,10 @@
           </div>
         </div>
       </div>
+
+      <div class="pdiv">
+        <p>Contact me</p>
+      </div>
  
       <form class="nform" id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xoqzbbba" method="post">
         <fieldset id="fs-frm-inputs">
@@ -630,15 +634,15 @@
       #fs-frm select,
       #fs-frm textarea,
       #fs-frm #card-element {
-        border: 1px solid rgba(0,0,0,0.2);
-        background-color: rgba(255,255,255,0.9);
+        border: 1px solid rgba(48, 44, 44, 0.925);
+        background-color: rgba(19, 18, 18, 0.9);
         padding: .75em 1rem;
         margin-bottom: 1.5rem;
       }
       #fs-frm input:focus,
       #fs-frm select:focus,
       #fs-frm textarea:focus {
-        background-color: white;
+        background-color: rgb(71, 69, 69);
         outline-style: solid;
         outline-width: thin;
         outline-color: gray;
@@ -651,16 +655,18 @@
       #fs-frm [type="button"],
       #fs-frm [type="submit"],
       #fs-frm [type="reset"] {
-        width: auto;
+        width: 50%;
+        display: inline;
         cursor: pointer;
         -webkit-appearance: button;
         -moz-appearance: button;
         appearance: button;
       }
-      #fs-frm [type="button"]:focus,
-      #fs-frm [type="submit"]:focus,
-      #fs-frm [type="reset"]:focus {
+      #fs-frm [type="button"]:hover,
+      #fs-frm [type="submit"]:hover,
+      #fs-frm [type="reset"]:hover {
         outline: none;
+        background-color: rgb(61, 58, 58);
       }
       #fs-frm [type="submit"],
       #fs-frm [type="reset"] {
