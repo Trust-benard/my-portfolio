@@ -664,8 +664,9 @@ background-color: #201f1f;
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
+
 .portfolio .portfolio-item {
-  margin-bottom: 30px;
+  margin-bottom: 30px;  
 }
 .portfolio #portfolio-flters {
   padding: 0;
@@ -874,6 +875,11 @@ background-color: #201f1f;
   padding: 20px;
   width: 100%;
   background: rgba(255, 255, 255, 0.08);
+}
+
+.info-box:hover {
+  background-color: hsl(0, 2%, 25%);
+
 }
 .contact .info-box i.bx {
   font-size: 24px;
