@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Trust Benard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="contact.html" class="text-primary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="pt-24 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">Get In Touch</h1>
+            
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <h2 class="text-2xl font-semibold mb-6">Let's Work Together</h2>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        I'm always interested in new opportunities and exciting projects. 
+                        Whether you need a website built from scratch, want to improve an existing site, 
+                        or have any questions about web development, I'd love to hear from you.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Email</h3>
+                                <p class="text-gray-400">trustbenard01@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Phone</h3>
+                                <p class="text-gray-400">+234 915 649 4903</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Location</h3>
+                                <p class="text-gray-400">Abuja, Nigeria</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Response Time</h3>
+                                <p class="text-gray-400">Within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div>
+                        <h3 class="font-semibold mb-4">Follow Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/trust-benard" class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/30 transition-colors">
+                                <i class="fab fa-github text-primary"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/trust-benard-027411229" class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/30 transition-colors">
+                                <i class="fab fa-linkedin text-primary"></i>
+                            </a>
+                            <a href="https://twitter.com/BenardTrust" class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/30 transition-colors">
+                                <i class="fab fa-twitter text-primary"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="bg-dark-light p-8 rounded-2xl">
+                        <h2 class="text-2xl font-semibold mb-6">Send Me a Message</h2>
+                        <form action="https://formspree.io/f/xoqzbbba" method="POST" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                                    <input type="text" id="name" name="name" required 
+                                           class="w-full px-4 py-3 bg-dark border border-gray-600 rounded-lg focus:border-primary focus:outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                    <input type="email" id="email" name="email" required 
+                                           class="w-full px-4 py-3 bg-dark border border-gray-600 rounded-lg focus:border-primary focus:outline-none transition-colors">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" required 
+                                       class="w-full px-4 py-3 bg-dark border border-gray-600 rounded-lg focus:border-primary focus:outline-none transition-colors">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="6" required 
+                                          class="w-full px-4 py-3 bg-dark border border-gray-600 rounded-lg focus:border-primary focus:outline-none transition-colors resize-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-primary hover:bg-primary/80 py-3 rounded-lg transition-colors transform hover:scale-105 font-semibold">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services -->
+            <div class="mt-20">
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Services I Offer</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-code text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-center">Web Development</h3>
+                        <p class="text-gray-400 text-center">Custom websites built with modern technologies and best practices.</p>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                            <i class="fab fa-wordpress text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-center">WordPress Development</h3>
+                        <p class="text-gray-400 text-center">Custom WordPress themes and plugins for your business needs.</p>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-mobile-alt text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-center">Responsive Design</h3>
+                        <p class="text-gray-400 text-center">Mobile-first designs that work perfectly on all devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+
+    <style>
+        .service-card {
+            @apply bg-dark-light p-8 rounded-2xl hover:bg-gray-700 transition-all transform hover:scale-105;
+        }
+    </style>
+</body>
+</html>

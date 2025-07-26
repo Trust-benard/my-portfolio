@@ -1,810 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Trust portfolio</title>
-  <meta content="My personal portfolio site" name="description">
-  <meta content="Information about me" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.ico" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust Benard - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
-
-      <h1><a href="index.html">Trust Benard</a></h1>
-      <h2>I'm a front end <span>Web Developer</span></h2>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#services">Services</a></li>
-          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <div class="social-links">
-        <a href="https://twitter.com/BenardTrust?t=f5d-ul1bFf5RpcT-sIO8vw&s=09" class="twitter" target="blank"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.facebook.com/benard.trust.9?mibextid=ZbWKwL" class="facebook" target="blank"><i class="bi bi-facebook"></i></a>
-        <a href="https://instagram.com/trust_benard?igshid=NTc4MTIwNjQ2YQ==" class="instagram" target="blank"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/trust-benard-027411229" target="blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/trust-benard" target="blank" class="github"><i class="bi bi-github"></i></a>
-      </div>
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>about me</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.jpg" class="img-fluid" alt="A picture of me">
-        </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3> Web Developer</h3>
-          <p class="fst-italic">
-            I'm a web developer with skills in HTML, CSS, JAVASCRIPT, BOOTSTRAP, NODE.JS, EXPRESS.JS, EJS and content management systems {CMS)
-            such as WordPress, web flow.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+234 915 649 4903</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Abuja, Nigeria</span></li>
-              </ul>
+<body class="bg-dark text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-primary">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>trustbenard01@gmail.com</span>
-                </li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-              </ul>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-primary py-2">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors py-2">Projects</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
+                </div>
             </div>
-          </div>
-          <p>
-            I'm a passionate front end web developer,intrested in creating websites with the latest technologies and
-            programming languages. I build responsive website that suits both desktop and mobile use.
-          </p>
         </div>
-      </div>
+    </nav>
 
-    </div><!-- End About Me -->
-
-
-    <!-- ======= Counts ======= -->
-    <div class="counts container">
-
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-emoji-smile"></i>
-            <span data-purecounter-start="0" data-purecounter-end="26" data-purecounter-duration="2"
-              class="purecounter"></span>
-            <p>Happy Clients</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-          <div class="count-box">
-            <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="2"
-              class="purecounter"></span>
-            <p>Projects</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-clock"></i>
-            <span data-purecounter-start="0" data-purecounter-end="8000" data-purecounter-duration="2"
-              class="purecounter"></span>
-            <p>Hours Of Support</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="2"
-              class="purecounter"></span>
-            <p>Certifications/Awards</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div><!-- End Counts -->
-
-    <!-- ======= Skills  ======= -->
-
-    <div class="interests container">
-      <div class="section-title">
-        <h2>skill</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-html5-fill" style="color: hsl(41, 75%, 54%); font-size: 70px;"></i>
-            <h3>HTML5</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-css3-fill" style="color: #ec9a00ec;  font-size: 70px;"></i>
-            <h3>CSS3</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class=" ri-bootstrap-line" style="color: #d514ee; font-size: 70px;"></i>  
-            <h3>BOOTSTRAPP</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box" >
-            <i class=" ri-javascript-line" style="color: hsl(54, 88%, 48%); font-size: 70px;"></i>   
-            <h3>JAVASCRIPT</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" style="fill: rgb(206, 36, 36);transform: msFilter;"><path d="M12 21.985c-.275 0-.532-.074-.772-.202l-2.439-1.448c-.365-.203-.182-.277-.072-.314.496-.165.588-.201 1.101-.493.056-.037.129-.02.185.017l1.87 1.12c.074.036.166.036.221 0l7.319-4.237c.074-.036.11-.11.11-.202V7.768c0-.091-.036-.165-.11-.201l-7.319-4.219c-.073-.037-.165-.037-.221 0L4.552 7.566c-.073.036-.11.129-.11.201v8.457c0 .073.037.166.11.202l2 1.157c1.082.548 1.762-.095 1.762-.735V8.502c0-.11.091-.221.22-.221h.936c.108 0 .22.092.22.221v8.347c0 1.449-.788 2.294-2.164 2.294-.422 0-.752 0-1.688-.46l-1.925-1.099a1.55 1.55 0 0 1-.771-1.34V7.786c0-.55.293-1.064.771-1.339l7.316-4.237a1.637 1.637 0 0 1 1.544 0l7.317 4.237c.479.274.771.789.771 1.339v8.458c0 .549-.293 1.063-.771 1.34l-7.317 4.236c-.241.11-.516.165-.773.165zm2.256-5.816c-3.21 0-3.87-1.468-3.87-2.714 0-.11.092-.221.22-.221h.954c.11 0 .201.073.201.184.147.971.568 1.449 2.514 1.449 1.54 0 2.202-.35 2.202-1.175 0-.477-.185-.825-2.587-1.063-1.999-.2-3.246-.643-3.246-2.238 0-1.485 1.247-2.366 3.339-2.366 2.347 0 3.503.809 3.649 2.568a.297.297 0 0 1-.056.165c-.037.036-.091.073-.146.073h-.953a.212.212 0 0 1-.202-.164c-.221-1.012-.789-1.34-2.292-1.34-1.689 0-1.891.587-1.891 1.027 0 .531.237.696 2.514.99 2.256.293 3.32.715 3.32 2.294-.02 1.615-1.339 2.531-3.67 2.531z"></path></svg>
-     <h3>NODE.JS</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <svg width="70" height="70" viewBox="0 -181.5 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M3.33224862,115.629027 L3.33224862,58.6475756 L74.4757566,58.6475756 L74.4757566,55.315327 L3.33224862,55.315327 L3.33224862,3.33224862 L78.9742922,3.33224862 L78.9742922,0 L-3.55271368e-15,0 L-3.55271368e-15,118.961276 L79.640742,118.961276 L79.640742,115.629027 L3.33224862,115.629027 L3.33224862,115.629027 Z M143.786528,33.3224862 L114.296128,72.1431826 L85.472177,33.3224862 L81.1402538,33.3224862 L112.296778,74.642369 L78.14123,118.961276 L82.1399284,118.961276 L114.296128,77.1415554 L146.618939,118.961276 L150.78425,118.961276 L116.462089,74.642369 L147.785226,33.3224862 L143.786528,33.3224862 L143.786528,33.3224862 Z M160.780996,148.285063 L160.780996,94.9690856 L161.114221,94.9690856 C163.11358,102.744371 167.056701,108.992275 172.943703,113.712984 C178.830705,118.433693 186.32819,120.794012 195.436381,120.794012 C201.323384,120.794012 206.543854,119.599969 211.09795,117.211845 C215.652046,114.823722 219.456324,111.574812 222.510902,107.465018 C225.565478,103.355224 227.898028,98.5790488 229.508624,93.1363488 C231.119218,87.6936488 231.924504,81.973346 231.924504,75.9752684 C231.924504,69.532889 231.09145,63.5904384 229.425318,58.1477384 C227.759184,52.7050384 225.343328,47.9844 222.177676,43.9856818 C219.012024,39.9869634 215.179976,36.8768958 210.681418,34.6553856 C206.18286,32.4338754 201.101232,31.323137 195.436381,31.323137 C191.104437,31.323137 187.07801,31.9618116 183.35698,33.23918 C179.635951,34.5165484 176.331504,36.3214982 173.443541,38.654084 C170.555577,40.9866696 168.056416,43.7357472 165.945981,46.9013992 C163.835546,50.0670512 162.224976,53.5381088 161.114221,57.3146762 L160.780996,57.3146762 L160.780996,33.3224862 L157.448747,33.3224862 L157.448747,148.285063 L160.780996,148.285063 L160.780996,148.285063 Z M195.436381,117.628376 C184.995284,117.628376 176.609208,114.046245 170.277904,106.881874 C163.9466,99.717504 160.780996,89.415405 160.780996,75.9752684 C160.780996,70.421493 161.558513,65.1454854 163.11357,60.1470876 C164.668627,55.1486896 166.917872,50.7612728 169.861373,46.9847054 C172.804874,43.2081382 176.442543,40.2091444 180.774487,37.9876342 C185.106432,35.766124 189.993681,34.6553856 195.436381,34.6553856 C200.990156,34.6553856 205.849638,35.766124 210.01497,37.9876342 C214.1803,40.2091444 217.62359,43.2359066 220.34494,47.0680118 C223.06629,50.9001168 225.121156,55.2875336 226.5096,60.2303938 C227.898044,65.173254 228.592256,70.421493 228.592256,75.9752684 C228.592256,80.9736664 227.95358,85.9442208 226.676212,90.887081 C225.398844,95.8299412 223.427284,100.272895 220.76147,104.216075 C218.095658,108.159256 214.680138,111.380398 210.514806,113.879596 C206.349474,116.378795 201.323384,117.628376 195.436381,117.628376 L195.436381,117.628376 L195.436381,117.628376 Z M250.251872,118.961276 L250.251872,70.4770582 C250.251872,65.8118868 250.918314,61.2578592 252.25122,56.814839 C253.584126,52.3718186 255.638992,48.4564656 258.41588,45.0686626 C261.192768,41.6808596 264.719362,39.0150872 268.99577,37.0712658 C273.272176,35.1274444 278.353806,34.322159 284.240808,34.6553856 L284.240808,31.323137 C279.131334,31.2120614 274.660612,31.7674308 270.828506,32.9892614 C266.996402,34.211092 263.691954,35.8771996 260.915066,37.9876342 C258.138178,40.098069 255.916702,42.569462 254.25057,45.4018874 C252.584436,48.2343128 251.362624,51.2610752 250.585096,54.4822648 L250.251872,54.4822648 L250.251872,33.3224862 L246.919622,33.3224862 L246.919622,118.961276 L250.251872,118.961276 L250.251872,118.961276 Z M288.406118,76.8083306 L360.049464,76.8083306 C360.271614,70.9213286 359.688476,65.2565626 358.300032,59.8138626 C356.911588,54.3711628 354.690112,49.5394506 351.635536,45.3185812 C348.580958,41.0977118 344.637838,37.7099596 339.806052,35.155223 C334.974268,32.6004862 329.226196,31.323137 322.561666,31.323137 C317.78542,31.323137 313.120318,32.3228016 308.566222,34.3221608 C304.012126,36.32152 300.013468,39.2372084 296.570126,43.0693134 C293.126786,46.9014184 290.34994,51.5942884 288.239506,57.1480638 C286.12907,62.7018392 285.07387,69.0330484 285.07387,76.1418808 C285.07387,82.473185 285.79585,88.387867 287.23983,93.8861048 C288.683812,99.3843424 290.90529,104.160518 293.904328,108.214774 C296.903366,112.26903 300.763182,115.406866 305.483892,117.628376 C310.204602,119.849886 315.897136,120.905088 322.561666,120.794012 C332.33631,120.794012 340.555776,118.044935 347.220306,112.546697 C353.884836,107.048459 357.827958,99.3010588 359.049788,89.304263 L355.71754,89.304263 C354.273558,98.7456812 350.580352,105.826639 344.637814,110.547348 C338.695274,115.268057 331.225558,117.628376 322.228442,117.628376 C316.119288,117.628376 310.954354,116.573175 306.733486,114.46274 C302.512616,112.352305 299.069326,109.464385 296.403514,105.798894 C293.737702,102.133402 291.766142,97.8292904 290.488774,92.8864302 C289.211404,87.94357 288.517194,82.5842572 288.406118,76.8083306 L288.406118,76.8083306 L288.406118,76.8083306 Z M356.717214,73.476082 L288.406118,73.476082 C288.739344,67.4780046 289.850082,62.0909232 291.738366,57.3146762 C293.62665,52.5384294 296.098044,48.4564656 299.15262,45.0686626 C302.207196,41.6808596 305.76156,39.0983926 309.815816,37.3211846 C313.870072,35.5439764 318.22972,34.6553856 322.89489,34.6553856 C328.448666,34.6553856 333.335916,35.6828186 337.556784,37.7377156 C341.777654,39.7926126 345.304248,42.597227 348.136674,46.1516434 C350.9691,49.7060596 353.107272,53.8435602 354.551252,58.5642694 C355.995234,63.2849786 356.717214,68.255533 356.717214,73.476082 L356.717214,73.476082 L356.717214,73.476082 Z M429.193622,58.6475756 L432.52587,58.6475756 C432.52587,49.0950818 429.749024,42.1529666 424.195248,37.8210218 C418.641474,33.489077 411.088452,31.323137 401.535958,31.323137 C396.204334,31.323137 391.705844,31.98958 388.040352,33.3224862 C384.37486,34.6553922 381.375866,36.3770368 379.04328,38.4874716 C376.710694,40.5979062 375.044586,42.930457 374.044908,45.4851936 C373.045228,48.0399304 372.545396,50.4835548 372.545396,52.8161406 C372.545396,57.481312 373.37845,61.2022858 375.044582,63.9791734 C376.710714,66.7560612 379.32095,68.9220012 382.875366,70.4770582 C385.319028,71.5878134 388.095874,72.587478 391.205988,73.476082 C394.316102,74.364686 397.926002,75.3088138 402.035796,76.3084934 C405.701288,77.1970974 409.311188,78.0856882 412.865604,78.9742922 C416.42002,79.8628962 419.557856,81.0569402 422.279206,82.5564594 C425.000556,84.0559788 427.222032,85.9720026 428.943704,88.3045884 C430.665374,90.637174 431.526196,93.6917048 431.526196,97.468272 C431.526196,101.133764 430.665374,104.243831 428.943704,106.798568 C427.222032,109.353305 425.028324,111.435939 422.362512,113.046534 C419.6967,114.657129 416.725474,115.823405 413.448748,116.545395 C410.17202,117.267386 406.978646,117.628376 403.868532,117.628376 C393.760662,117.628376 386.01326,115.379131 380.626098,110.880573 C375.238936,106.382015 372.545396,99.3010572 372.545396,89.6374878 L369.213146,89.6374878 C369.213146,100.411812 372.128836,108.298055 377.9603,113.296453 C383.791764,118.294851 392.427754,120.794012 403.868532,120.794012 C407.534024,120.794012 411.22723,120.377485 414.94826,119.544419 C418.669288,118.711353 422.001504,117.350698 424.945004,115.462415 C427.888506,113.574131 430.276594,111.130506 432.10934,108.131468 C433.942086,105.132429 434.858444,101.466992 434.858444,97.1350472 C434.858444,93.0252534 434.05316,89.693038 432.442564,87.1383014 C430.83197,84.5835646 428.721566,82.4731616 426.111292,80.807029 C423.501018,79.1408964 420.55756,77.8357786 417.280834,76.8916368 C414.004106,75.947495 410.699658,75.0311358 407.367394,74.1425318 C402.702222,72.9207012 398.620258,71.8654996 395.12138,70.9768956 C391.622502,70.0882914 388.373592,69.03309 385.374552,67.8112594 C382.48659,66.5894288 380.181808,64.8400158 378.460136,62.5629678 C376.738466,60.2859198 375.877644,57.03701 375.877644,52.8161406 C375.877644,52.038612 376.099792,50.650189 376.544094,48.6508298 C376.988396,46.6514706 378.043598,44.624373 379.70973,42.569476 C381.375862,40.5145792 383.93056,38.6818608 387.373902,37.0712658 C390.817242,35.460671 395.53788,34.6553856 401.535958,34.6553856 C405.645752,34.6553856 409.394494,35.099681 412.782298,35.988285 C416.1701,36.8768892 419.085788,38.2930806 421.52945,40.236902 C423.973112,42.1807234 425.861366,44.6521164 427.194272,47.6511552 C428.527178,50.650194 429.193622,54.3156308 429.193622,58.6475756 L429.193622,58.6475756 L429.193622,58.6475756 Z M506.335178,58.6475756 L509.667426,58.6475756 C509.667426,49.0950818 506.89058,42.1529666 501.336804,37.8210218 C495.783028,33.489077 488.230008,31.323137 478.677514,31.323137 C473.34589,31.323137 468.847398,31.98958 465.181906,33.3224862 C461.516416,34.6553922 458.517422,36.3770368 456.184836,38.4874716 C453.85225,40.5979062 452.186142,42.930457 451.186462,45.4851936 C450.186784,48.0399304 449.68695,50.4835548 449.68695,52.8161406 C449.68695,57.481312 450.520004,61.2022858 452.186138,63.9791734 C453.85227,66.7560612 456.462506,68.9220012 460.016922,70.4770582 C462.460582,71.5878134 465.237428,72.587478 468.347544,73.476082 C471.457658,74.364686 475.067558,75.3088138 479.177352,76.3084934 C482.842842,77.1970974 486.452742,78.0856882 490.00716,78.9742922 C493.561576,79.8628962 496.699412,81.0569402 499.420762,82.5564594 C502.142112,84.0559788 504.363588,85.9720026 506.085258,88.3045884 C507.80693,90.637174 508.667752,93.6917048 508.667752,97.468272 C508.667752,101.133764 507.80693,104.243831 506.085258,106.798568 C504.363588,109.353305 502.16988,111.435939 499.504068,113.046534 C496.838256,114.657129 493.86703,115.823405 490.590302,116.545395 C487.313576,117.267386 484.120202,117.628376 481.010088,117.628376 C470.902216,117.628376 463.154816,115.379131 457.767654,110.880573 C452.380492,106.382015 449.68695,99.3010572 449.68695,89.6374878 L446.354702,89.6374878 C446.354702,100.411812 449.27039,108.298055 455.101854,113.296453 C460.93332,118.294851 469.56931,120.794012 481.010088,120.794012 C484.67558,120.794012 488.368784,120.377485 492.089814,119.544419 C495.810844,118.711353 499.14306,117.350698 502.08656,115.462415 C505.030062,113.574131 507.418148,111.130506 509.250894,108.131468 C511.08364,105.132429 512,101.466992 512,97.1350472 C512,93.0252534 511.194714,89.693038 509.58412,87.1383014 C507.973524,84.5835646 505.863122,82.4731616 503.252848,80.807029 C500.642572,79.1408964 497.699116,77.8357786 494.422388,76.8916368 C491.145662,75.947495 487.841214,75.0311358 484.508948,74.1425318 C479.843778,72.9207012 475.761814,71.8654996 472.262936,70.9768956 C468.764056,70.0882914 465.515146,69.03309 462.516108,67.8112594 C459.628144,66.5894288 457.323362,64.8400158 455.601692,62.5629678 C453.880022,60.2859198 453.0192,57.03701 453.0192,52.8161406 C453.0192,52.038612 453.241348,50.650189 453.68565,48.6508298 C454.129952,46.6514706 455.185152,44.624373 456.851286,42.569476 C458.517418,40.5145792 461.072116,38.6818608 464.515458,37.0712658 C467.958798,35.460671 472.679436,34.6553856 478.677514,34.6553856 C482.787308,34.6553856 486.53605,35.099681 489.923852,35.988285 C493.311656,36.8768892 496.227344,38.2930806 498.671006,40.236902 C501.114666,42.1807234 503.002922,44.6521164 504.335828,47.6511552 C505.668734,50.650194 506.335178,54.3156308 506.335178,58.6475756 L506.335178,58.6475756 L506.335178,58.6475756 Z" fill="#f7f7f7"> </path> </g> </g></svg>
-            <h3 style="margin-left: 30px;">EXPRESS.JS</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <svg width="70" height="70" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>file_type_ejs</title><path d="M2,17.672V14.328l11.86-6.2V11.2L5.1,15.939l8.762,4.835v3.1Zm27.814-8.88L19.465,23.229H15.912L26.281,8.791ZM26.947,21.5a.794.794,0,0,0,.619-.278,1.061,1.061,0,0,0,.248-.732,1.141,1.141,0,0,0-.248-.753.768.768,0,0,0-1.217,0,1.141,1.141,0,0,0-.248.753,1.09,1.09,0,0,0,.237.732A.763.763,0,0,0,26.947,21.5Zm2.186,1.042a3.237,3.237,0,0,1-4.352-.01,2.864,2.864,0,0,1,0-4.1,3.223,3.223,0,0,1,4.352,0A2.773,2.773,0,0,1,30,20.486,2.74,2.74,0,0,1,29.134,22.538ZM18.821,13.061a.794.794,0,0,0,.619-.278,1.061,1.061,0,0,0,.248-.732,1.141,1.141,0,0,0-.248-.753.769.769,0,0,0-1.217,0,1.141,1.141,0,0,0-.248.753,1.09,1.09,0,0,0,.237.732A.763.763,0,0,0,18.821,13.061ZM21.007,14.1a3.237,3.237,0,0,1-4.352-.01,2.864,2.864,0,0,1,0-4.1,3.223,3.223,0,0,1,4.352,0,2.773,2.773,0,0,1,.866,2.063A2.74,2.74,0,0,1,21.007,14.1Z" style="fill:#90a93a"></path></g></svg>
-            <h3>EJS</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-github-fill" style="color: #ebeaf0; font-size: 70px;"></i> 
-            <h3>GIT/GITHUB</h3>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-      <div class="section-title">
-        <h2>Interests</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="bi bi-file-code-fill" style="color: #ffbb2c;"></i>
-            <h3>Coding</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="bi bi-book-fill" style="color: #5578ff;"></i>
-            <h3>Reading</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="bi bi-stoplights" style="color: #e80368;"></i>
-            <h3>Traveling</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="bi bi-speedometer" style="color: #e361ff;"></i>
-            <h3>Driving</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="bi bi-music-note-beamed" style="color: #47aeff;"></i>
-            <h3>Music</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="bi bi-water"" style=" color: #ffa76e;"></i>
-            <h3>Swimming</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="bi bi-bicycle" style="color: #11dbcf;"></i>
-            <h3>Cycling</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="bi bi-film" style="color: #4233ff;"></i>
-            <h3>Movies</h3>
-          </div>
-        </div>
-
-      </div><!-- End Interests -->
-
-  </section><!-- End About Section -->
-
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>My Services</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxl-wordpress"></i></div>
-            <h4>Wordpress/CMS</h4>
-            <p>Manage and build your website using the web's most popular content management system. or anyother CMS of
-              your choice.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-code"></i></div>
-            <h4>Web Development and Hosting</h4>
-            <p>I build and host responsive websites built for an optimal user experience that achieves your business goals.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-code"></i></div>
-            <h4>Web Support and Maintenance</h4>
-            <p>Help you create and manage your existing website, to keep it up to date with the latest technologies.</p>
-          </div>
-        </div>
-
-         <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxl-javascript"></i></div>
-            <h4><a href="">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-slideshow"></i></div>
-            <h4><a href="">Dele cardo</a></h4>
-            <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-arch"></i></div>
-            <h4><a href="">Divera don</a></h4>
-            <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-          </div>
-        </div> --> -->
-
-      </div>
-  </section><!-- End Services Section -->
-
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Resume</h2>
-        <p>Check My Resume</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="resume-title">Sumary</h3>
-          <div class="resume-item pb-0">
-            <h4>Trust Benard</h4>
-            <p><em>Innovative and deadline-driven Web Developer with 1+ years of experience designing and developing
-                user-friendly, mobile responsive websites.</em></p>
-            <p>
-            <ul>
-              <li>Abuja, Nigeria</li>
-              <li>+234 915 649 4903</li>
-            </ul>
-            </p>
-          </div>
-
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>udemy</h4>
-            <h5>2021 - Present</h5>
-            <p><em>Web Development boot camp</em></p>
-            <p>This course taught comprehensively various technical skills important in frontend web development.
-              Completed several projects encompassing the knowledge of: HTML, CSS and JavaScript
-              • Responsive Web Design
-              • Object-Oriented Programming
-              • Web Accessibility
-              • Node and Express.js
-              • Working with APIs
-              • Working with several frameworks (among others)</p>
-          </div>
-          <div class="resume-item">
-            <h4>free code camp</h4>
-            <h5>2021</h5>
-            <p><em>Responsive web design</em></p>
-            <p>This course taught how to create responsive websites that are mobile friendly, and the best pratices in using HTML and CSS.</p>
-          </div>
-          <div class="resume-item">
-            <h4>Traversy media</h4>
-            <h5>2021</h5>
-            <p><em>Javascript for begineers</em></p>
-            <p>This course was an introduction to Javascript.
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Gwendolyn Faraday</h4>
-            <h5>2021</h5>
-            <p><em>Git/Github</em></p>
-          </div>
-          <div class="resume-item">
-            <h4>Free Code Camp</h4>
-            <h5>2021</h5>
-            <p><em>WordPress begineers to advance</em></p>
-            <p>This course taught Wordpress from begineer to advance.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="resume-title">Professional Experience</h3>
-          <div class="resume-item">
-            <h4>Upwork</h4>
-            <h5>2021 - Present</h5>
-           <p>REMOTE</p>
-            <p>
-            <ul>
-              <li>Building responsive websites for clients all around the world</li>
-              <li>Testing and maintaining of sites.</li>
-              <li>Keeping sites up to date by using the latest frameworks</li>
-              <li>Oversee the efficient use of the best programing pratices</li>
-            </ul>
-            </p> 
-          </div>
-           <div class="resume-item">
-            <h4>Ignyte media</h4>
-            <h5>2019 - Present</h5>
-            <p>Web Developer & Wordpress designer</p>
-            <p>
-              <ul>
-                <li>Building responsive websites for clients all around the world</li>
-                <li>Testing and maintaining of sites.</li>
-                <li>Keeping sites up to date by using the latest frameworks</li>
-                <li>Oversee the efficient use of the best programing pratices</li>
-              </ul>
-            </p>
-          </div>
-        </div>
-      </div> 
-
-    </div>
-  </section><!-- End Resume Section -->
-
-
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>My Works</p>
-      </div>
-
-
-      <div class="row portfolio-container">
-
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/1.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/scorekeeper/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">A score keeper clone</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/6.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/jokes/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">Jokes app.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <canvas id="starry-code" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-600/10"></div>
         
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/2.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/octography/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">A sample portfolio site.</p>
-              </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
+                    Hi, I'm <span class="text-primary">Trust</span>
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300 px-4">
+                    Front-End Web Developer & UI/UX Enthusiast
+                </p>
+                <p class="text-sm sm:text-base text-gray-400 mb-8 max-w-2xl mx-auto">
+                    I create modern, responsive websites with clean code and exceptional user experiences. 
+                    Based in Abuja, Nigeria, available for freelance projects worldwide.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 px-4">
+                    <a href="projects.html" class="bg-primary hover:bg-primary/80 px-6 sm:px-8 py-3 rounded-full transition-all transform hover:scale-105 text-sm sm:text-base">
+                        View My Work
+                    </a>
+                    <a href="about.html" class="border border-primary hover:bg-primary/20 px-6 sm:px-8 py-3 rounded-full transition-all text-sm sm:text-base">
+                        Learn More
+                    </a>
+                    <a href="contact.html" class="border border-gray-600 hover:border-primary hover:text-primary px-6 sm:px-8 py-3 rounded-full transition-all text-sm sm:text-base">
+                        Get In Touch
+                    </a>
+                </div>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/trust-benard" class="text-xl sm:text-2xl hover:text-primary transition-colors transform hover:scale-110">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/trust-benard-027411229" class="text-xl sm:text-2xl hover:text-primary transition-colors transform hover:scale-110">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/BenardTrust" class="text-xl sm:text-2xl hover:text-primary transition-colors transform hover:scale-110">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/3.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/technical-documentation/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">A technical-documentation.</p>
-              </div>
+    <!-- Quick Stats -->
+    <section class="py-16 bg-dark-light">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
+                <div>
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">32+</div>
+                    <div class="text-sm sm:text-base text-gray-400">Projects Completed</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">26+</div>
+                    <div class="text-sm sm:text-base text-gray-400">Happy Clients</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">2+</div>
+                    <div class="text-sm sm:text-base text-gray-400">Years Experience</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">100%</div>
+                    <div class="text-sm sm:text-base text-gray-400">Client Satisfaction</div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/4.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/Sample-photography-site/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">A simple picture portfolio site.</p>
-              </div>
-            </div>
-          </div>
+    <!-- Footer -->
+    <footer class="py-8 bg-dark border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm sm:text-base">&copy; 2024 Trust Benard. All rights reserved.</p>
         </div>
+    </footer>
 
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/5.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/ozi-/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">Sample portfolio.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
 
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/7.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/movie-search-app/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">Movie search app.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/8.jpeg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://trust-benard.github.io/movieSearch/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">Another movie search app made for phones.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col col portfolio-item">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/9.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <div class="portfolio-links">
-                <a href="https://solidrahmenbaukonstrukteure.com/" data-gallery="portfolioDetailsGallery"
-                  data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i
-                    class="bx bx-link"></i></a>
-                    <p class="details">A real estate site</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        // Starry Code Background
+        const canvas = document.getElementById('starry-code');
+        const ctx = canvas.getContext('2d');
         
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        const codeChars = ['0', '1', '{', '}', '<', '>', '/', '=', ';', '(', ')', '[', ']', '+', '-', '*'];
+        const particles = [];
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.char = codeChars[Math.floor(Math.random() * codeChars.length)];
+                this.speed = Math.random() * 0.5 + 0.1;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                this.size = Math.random() * 12 + 8;
+            }
+            
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height) {
+                    this.y = -this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            
+            draw() {
+                ctx.fillStyle = `rgba(16, 185, 129, ${this.opacity})`;
+                ctx.font = `${this.size}px monospace`;
+                ctx.fillText(this.char, this.x, this.y);
+            }
+        }
+        
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
 
-
-      </div>
-
-    </div>
-  </section><!-- End Portfolio Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">              
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Me</p>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Abuja, Nigeria.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://twitter.com/BenardTrust?t=f5d-ul1bFf5RpcT-sIO8vw&s=09" class="twitter" target="blank"><i class="bi bi-twitter"></i></a>
-              <a href="https://www.facebook.com/benard.trust.9?mibextid=ZbWKwL" class="facebook" target="blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://instagram.com/trust_benard?igshid=NTc4MTIwNjQ2YQ==" class="instagram" target="blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/trust-benard-027411229" target="blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              <a href="https://github.com/trust-benard" target="blank" class="github"><i class="bi bi-github"></i></a>
-            </div>
-      
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <p>trustbenard01@gmail.com</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Call Me</h3>
-            <p>+234 9156494903</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="pdiv">
-        <p>Email Me</p>
-      </div>
- 
-      <form class="nform" id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xoqzbbba" method="post">
-        <fieldset id="fs-frm-inputs">
-          <label for="full-name" style="color: white; font-size: 20px;">Full Name</label>
-          <input type="text" name="name" id="full-name" placeholder="Name" required="">
-          <label for="email-address" style="color: white; font-size: 20px;">Email Address</label>
-          <input type="email" name="_replyto" id="email-address" placeholder="Email" required="">
-          <label for="message" style="color: white; font-size: 20px;">Message</label>
-          <textarea rows="5" name="message" id="message" placeholder="Write your message" required=""></textarea>
-          <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
-        </fieldset>
-       <div >
-        <input class="nsubmit" type="submit" value="Submit">
-       </div> 
-      </form><style>/* reset */
-      #fs-frm input,
-      #fs-frm select,
-      #fs-frm textarea,
-      #fs-frm fieldset,
-      #fs-frm optgroup,
-      #fs-frm label,
-      #fs-frm #card-element:disabled {
-        font-family: inherit;
-        font-size: 100%;
-        color: inherit;
-        border: none;
-        border-radius: 0;
-        display: block;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-      }
-      #fs-frm label,
-      #fs-frm legend,
-      #fs-frm ::placeholder {
-        font-size: .825rem;
-        margin-bottom: .5rem;
-        padding-top: .2rem;
-        display: flex;
-        align-items: baseline;
-      }
-      
-      /* border, padding, margin, width */
-      #fs-frm input,
-      #fs-frm select,
-      #fs-frm textarea,
-      #fs-frm #card-element {
-        border: 1px solid rgba(48, 44, 44, 0.925);
-        background-color: rgba(19, 18, 18, 0.9);
-        padding: .75em 1rem;
-        margin-bottom: 1.5rem;
-      }
-      #fs-frm input:focus,
-      #fs-frm select:focus,
-      #fs-frm textarea:focus {
-        background-color: rgb(71, 69, 69);
-        outline-style: solid;
-        outline-width: thin;
-        outline-color: gray;
-        outline-offset: -1px;
-      }
-      #fs-frm [type="text"],
-      #fs-frm [type="email"] {
-        width: 100%;
-      }
-      #fs-frm [type="button"],
-      #fs-frm [type="submit"],
-      #fs-frm [type="reset"] {
-        width: 50%;
-        display: inline;
-        cursor: pointer;
-        -webkit-appearance: button;
-        -moz-appearance: button;
-        appearance: button;
-      }
-      #fs-frm [type="button"]:hover,
-      #fs-frm [type="submit"]:hover,
-      #fs-frm [type="reset"]:hover {
-        outline: none;
-        background-color: rgb(61, 58, 58);
-      }
-      #fs-frm [type="submit"],
-      #fs-frm [type="reset"] {
-        margin-bottom: 0;
-      }
-      #fs-frm select {
-        text-transform: none;
-      }
-      
-      #fs-frm [type="checkbox"] {
-        -webkit-appearance: checkbox;
-        -moz-appearance: checkbox;
-        appearance: checkbox;
-        display: inline-block;
-        width: auto;
-        margin: 0 .5em 0 0 !important;
-      }
-      
-      #fs-frm [type="radio"] {
-        -webkit-appearance: radio;
-        -moz-appearance: radio;
-        appearance: radio;
-      }
-      
-      /* address, locale */
-      #fs-frm fieldset.locale input[name="city"],
-      #fs-frm fieldset.locale select[name="state"],
-      #fs-frm fieldset.locale input[name="postal-code"] {
-        display: inline;
-      }
-      #fs-frm fieldset.locale input[name="city"] {
-        width: 52%;
-      }
-      #fs-frm fieldset.locale select[name="state"],
-      #fs-frm fieldset.locale input[name="postal-code"] {
-        width: 20%;
-      }
-      #fs-frm fieldset.locale input[name="city"],
-      #fs-frm fieldset.locale select[name="state"] {
-        margin-right: 3%;
-      }
-      </style>
-
-
-
-      <!-- <form action="mailto:benardtrustxxx@gmail.com" method="post" enctype="text/plain" role="form" class="php-email-form mt-4 form">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit" value="send">Send Message</button></div>
-      </form> -->
-    </div>
-  </section><!-- End Contact Section -->
-
-
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
-
 </html>

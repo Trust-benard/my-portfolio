@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Trust Benard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-primary">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="pt-24 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">About Me</h1>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div data-aos="fade-right">
+                    <img src="assets/img/me.jpg" alt="Trust Benard" class="rounded-2xl shadow-2xl w-full max-w-md mx-auto">
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl font-semibold mb-6 text-primary">Web Developer</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        I'm a passionate front-end web developer with expertise in modern web technologies. 
+                        I create responsive, user-friendly websites that deliver exceptional user experiences.
+                        With over 2 years of experience, I've worked with clients worldwide to bring their digital visions to life.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        My journey in web development started with a curiosity about how websites work, 
+                        and has evolved into a passion for creating beautiful, functional digital experiences. 
+                        I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <strong class="text-primary">Location:</strong>
+                            <p class="text-gray-300">Abuja, Nigeria</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary">Email:</strong>
+                            <p class="text-gray-300 break-all">trustbenard01@gmail.com</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary">Phone:</strong>
+                            <p class="text-gray-300">+234 915 649 4903</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary">Freelance:</strong>
+                            <p class="text-gray-300">Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Skills & Technologies</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fab fa-html5 text-4xl text-orange-500 mb-4"></i>
+                        <h3 class="font-semibold">HTML5</h3>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fab fa-css3-alt text-4xl text-blue-500 mb-4"></i>
+                        <h3 class="font-semibold">CSS3</h3>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fab fa-js-square text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="font-semibold">JavaScript</h3>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fab fa-bootstrap text-4xl text-purple-500 mb-4"></i>
+                        <h3 class="font-semibold">Bootstrap</h3>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fab fa-node-js text-4xl text-green-500 mb-4"></i>
+                        <h3 class="font-semibold">Node.js</h3>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fab fa-git-alt text-4xl text-red-500 mb-4"></i>
+                        <h3 class="font-semibold">Git</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h2 class="text-2xl font-bold mb-8 text-primary">Experience</h2>
+                    <div class="space-y-6">
+                        <div class="border-l-2 border-primary pl-6">
+                            <h3 class="text-xl font-semibold">Freelance Web Developer</h3>
+                            <p class="text-primary mb-2">Upwork • 2021 - Present</p>
+                            <p class="text-gray-300">Building responsive websites for clients worldwide, focusing on modern web technologies and best practices.</p>
+                        </div>
+                        <div class="border-l-2 border-primary pl-6">
+                            <h3 class="text-xl font-semibold">Web Developer</h3>
+                            <p class="text-primary mb-2">Ignyte Media • 2019 - Present</p>
+                            <p class="text-gray-300">Developing and maintaining websites, ensuring optimal performance and user experience.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h2 class="text-2xl font-bold mb-8 text-primary">Education</h2>
+                    <div class="space-y-6">
+                        <div class="border-l-2 border-primary pl-6">
+                            <h3 class="text-xl font-semibold">Web Development Bootcamp</h3>
+                            <p class="text-primary mb-2">Udemy • 2021 - Present</p>
+                            <p class="text-gray-300">Comprehensive training in modern web development technologies and frameworks.</p>
+                        </div>
+                        <div class="border-l-2 border-primary pl-6">
+                            <h3 class="text-xl font-semibold">Responsive Web Design</h3>
+                            <p class="text-primary mb-2">FreeCodeCamp • 2021</p>
+                            <p class="text-gray-300">Certification in responsive web design principles and best practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+
+    <style>
+        .skill-card {
+            @apply bg-dark-light p-6 rounded-lg text-center hover:bg-gray-700 transition-all transform hover:scale-105 cursor-pointer;
+        }
+    </style>
+</body>
+</html>

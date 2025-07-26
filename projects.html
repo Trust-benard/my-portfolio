@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Trust Benard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="projects.html" class="text-primary">Projects</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="pt-24 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">My Projects</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/img/portfolio/1.png" alt="Score Keeper" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Score Keeper</h3>
+                        <p class="text-gray-400 mb-4">A simple and intuitive score tracking application built with vanilla JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">HTML</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">JavaScript</span>
+                        </div>
+                        <a href="https://trust-benard.github.io/scorekeeper/" class="text-primary hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/img/portfolio/6.png" alt="Jokes App" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Jokes App</h3>
+                        <p class="text-gray-400 mb-4">Random jokes generator application with API integration for endless entertainment.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">JavaScript</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">API</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
+                        </div>
+                        <a href="https://trust-benard.github.io/jokes/" class="text-primary hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="assets/img/portfolio/7.png" alt="Movie Search" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Movie Search App</h3>
+                        <p class="text-gray-400 mb-4">Search and discover movies with detailed information using OMDB API.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">JavaScript</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">API</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Bootstrap</span>
+                        </div>
+                        <a href="https://trust-benard.github.io/movie-search-app/" class="text-primary hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="assets/img/portfolio/2.png" alt="Portfolio Site" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+                        <p class="text-gray-400 mb-4">A responsive portfolio website showcasing photography and design work.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">HTML</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Responsive</span>
+                        </div>
+                        <a href="https://trust-benard.github.io/octography/" class="text-primary hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="assets/img/portfolio/3.png" alt="Technical Documentation" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Technical Documentation</h3>
+                        <p class="text-gray-400 mb-4">Clean and organized technical documentation page with navigation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">HTML</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Documentation</span>
+                        </div>
+                        <a href="https://trust-benard.github.io/technical-documentation/" class="text-primary hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <img src="assets/img/portfolio/9.png" alt="Real Estate Site" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Real Estate Website</h3>
+                        <p class="text-gray-400 mb-4">Professional real estate website with modern design and functionality.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">WordPress</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">PHP</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">MySQL</span>
+                        </div>
+                        <a href="https://solidrahmenbaukonstrukteure.com/" class="text-primary hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-16" data-aos="fade-up">
+                <h2 class="text-2xl font-bold mb-4">Interested in working together?</h2>
+                <p class="text-gray-400 mb-8">I'm always open to discussing new projects and opportunities.</p>
+                <a href="contact.html" class="bg-primary hover:bg-primary/80 px-8 py-3 rounded-full transition-all transform hover:scale-105">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+
+    <style>
+        .project-card {
+            @apply bg-dark-light rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl;
+        }
+    </style>
+</body>
+</html>
