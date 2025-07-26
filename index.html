@@ -27,11 +27,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="text-primary">Home</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
                     <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="resume.html" class="hover:text-primary transition-colors">Resume</a>
+                    <a href="games.html" class="hover:text-primary transition-colors">Games</a>
                     <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <button id="theme-toggle" class="ml-4 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun text-yellow-400" id="theme-icon"></i>
+                    </button>
                 </div>
                 <button class="md:hidden text-white" id="mobile-menu-btn">
                     <i class="fas fa-bars text-xl"></i>
@@ -42,7 +47,12 @@
                     <a href="index.html" class="text-primary py-2">Home</a>
                     <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
                     <a href="projects.html" class="hover:text-primary transition-colors py-2">Projects</a>
+                    <a href="resume.html" class="hover:text-primary transition-colors py-2">Resume</a>
+                    <a href="games.html" class="hover:text-primary transition-colors py-2">Games</a>
                     <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
+                    <button id="mobile-theme-toggle" class="mt-2 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors w-full">
+                        <i class="fas fa-sun text-yellow-400 mr-2"></i>Toggle Theme
+                    </button>
                 </div>
             </div>
         </div>
@@ -91,8 +101,15 @@
         </div>
     </section>
 
+    <!-- 3D Skills Cube -->
+    <section class="py-12 bg-dark-light relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <div id="threejs-container" class="mx-auto" style="height: 250px; max-width: 600px;"></div>
+        </div>
+    </section>
+
     <!-- Quick Stats -->
-    <section class="py-16 bg-dark-light">
+    <section class="py-16 bg-dark">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
                 <div>
@@ -123,6 +140,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
@@ -138,7 +156,7 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
         
-        const codeChars = ['0', '1', '{', '}', '<', '>', '/', '=', ';', '(', ')', '[', ']', '+', '-', '*'];
+        const codeChars = ['0', '1', '{', '}', '<', '>', '/', '=', ';', '(', ')', '[', ']', '+', '-', '*', 'function', 'const', 'let', 'var', 'if', 'else', 'return'];
         const particles = [];
         
         class Particle {
@@ -146,9 +164,9 @@
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.char = codeChars[Math.floor(Math.random() * codeChars.length)];
-                this.speed = Math.random() * 0.5 + 0.1;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.size = Math.random() * 12 + 8;
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.3 + 0.1;
+                this.size = Math.random() * 16 + 10;
             }
             
             update() {
@@ -160,13 +178,15 @@
             }
             
             draw() {
-                ctx.fillStyle = `rgba(16, 185, 129, ${this.opacity})`;
+                const isLight = document.body.classList.contains('light-theme');
+                const color = isLight ? '71, 85, 105' : '16, 185, 129';
+                ctx.fillStyle = `rgba(${color}, ${this.opacity * 0.5})`;
                 ctx.font = `${this.size}px monospace`;
                 ctx.fillText(this.char, this.x, this.y);
             }
         }
         
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 80; i++) {
             particles.push(new Particle());
         }
         
@@ -181,10 +201,246 @@
         
         animate();
 
+        // 3D Floating Skills Cards
+        let scene, camera, renderer, skillCards = [];
+        let mouseX = 0, mouseY = 0;
+        
+        function init3D() {
+            const container = document.getElementById('threejs-container');
+            if (!container) return;
+            
+            const isMobile = window.innerWidth < 768;
+            
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+            
+            if (isMobile) {
+                // Mobile: Create cube
+                const geometry = new THREE.BoxGeometry(2, 2, 2);
+                const skills = ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'Bootstrap', 'Git'];
+                const materials = skills.map(skill => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 256;
+                    canvas.height = 256;
+                    const ctx = canvas.getContext('2d');
+                    
+                    const isDark = document.body.classList.contains('dark-theme') || !document.body.classList.contains('light-theme');
+                    ctx.fillStyle = isDark ? '#1e293b' : '#f8fafc';
+                    ctx.fillRect(0, 0, 256, 256);
+                    
+                    ctx.strokeStyle = '#10b981';
+                    ctx.lineWidth = 4;
+                    ctx.strokeRect(10, 10, 236, 236);
+                    
+                    ctx.fillStyle = isDark ? '#10b981' : '#0f172a';
+                    ctx.font = 'bold 20px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(skill, 128, 128);
+                    
+                    const texture = new THREE.CanvasTexture(canvas);
+                    return new THREE.MeshBasicMaterial({ map: texture });
+                });
+                
+                const cube = new THREE.Mesh(geometry, materials);
+                scene.add(cube);
+                skillCards.push(cube);
+                camera.position.z = 5;
+            } else {
+                // Desktop: Create floating cards
+                const skills = [
+                    { name: 'HTML5', color: '#e34f26', pos: [-3, 1, 0] },
+                    { name: 'CSS3', color: '#1572b6', pos: [0, 2, 0] },
+                    { name: 'JavaScript', color: '#f7df1e', pos: [3, 1, 0] },
+                    { name: 'Node.js', color: '#339933', pos: [-2, -1, 0] },
+                    { name: 'Bootstrap', color: '#7952b3', pos: [2, -1, 0] },
+                    { name: 'Git', color: '#f05032', pos: [0, -2, 0] }
+                ];
+                
+                skills.forEach((skill, index) => {
+                    const geometry = new THREE.PlaneGeometry(2, 1.2);
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 400;
+                    canvas.height = 240;
+                    const ctx = canvas.getContext('2d');
+                    
+                    const isDark = document.body.classList.contains('dark-theme') || !document.body.classList.contains('light-theme');
+                    const gradient = ctx.createLinearGradient(0, 0, 400, 240);
+                    if (isDark) {
+                        gradient.addColorStop(0, '#1e293b');
+                        gradient.addColorStop(1, '#0f172a');
+                    } else {
+                        gradient.addColorStop(0, '#f8fafc');
+                        gradient.addColorStop(1, '#e2e8f0');
+                    }
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 400, 240);
+                    
+                    ctx.strokeStyle = skill.color;
+                    ctx.lineWidth = 6;
+                    ctx.strokeRect(10, 10, 380, 220);
+                    
+                    ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
+                    ctx.font = 'bold 32px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(skill.name, 200, 140);
+                    
+                    ctx.fillStyle = skill.color;
+                    ctx.fillRect(50, 160, 300, 4);
+                    
+                    const texture = new THREE.CanvasTexture(canvas);
+                    const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+                    
+                    const card = new THREE.Mesh(geometry, material);
+                    card.position.set(...skill.pos);
+                    card.userData = { originalY: skill.pos[1], floatOffset: index * 0.5 };
+                    
+                    scene.add(card);
+                    skillCards.push(card);
+                });
+                camera.position.z = 8;
+            }
+            
+            // Mouse interaction
+            container.addEventListener('mousemove', (event) => {
+                const rect = container.getBoundingClientRect();
+                mouseX = (event.clientX - rect.left - rect.width / 2) / rect.width;
+                mouseY = (event.clientY - rect.top - rect.height / 2) / rect.height;
+            });
+            
+            animate3D();
+        }
+        
+        function animate3D() {
+            requestAnimationFrame(animate3D);
+            
+            const time = Date.now() * 0.001;
+            const isMobile = window.innerWidth < 768;
+            
+            skillCards.forEach((card, index) => {
+                if (isMobile && skillCards.length === 1) {
+                    // Mobile cube animation
+                    card.rotation.x += 0.005;
+                    card.rotation.y += 0.005;
+                    card.rotation.x += mouseY * 0.02;
+                    card.rotation.y += mouseX * 0.02;
+                } else {
+                    // Desktop cards animation
+                    if (card.userData) {
+                        card.position.y = card.userData.originalY + Math.sin(time + card.userData.floatOffset) * 0.3;
+                        card.rotation.y = Math.sin(time * 0.5 + index) * 0.1;
+                    }
+                    card.rotation.x = mouseY * 0.3;
+                    card.rotation.y += mouseX * 0.2;
+                }
+            });
+            
+            if (renderer && scene && camera) {
+                renderer.render(scene, camera);
+            }
+        }
+        
+        // Initialize 3D after page load
+        window.addEventListener('load', () => {
+            setTimeout(init3D, 1000);
+        });
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('threejs-container');
+            if (container && camera && renderer) {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            }
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            document.body.classList.toggle('dark-theme');
+            
+            const isLight = document.body.classList.contains('light-theme');
+            const icon = document.getElementById('theme-icon');
+            const mobileIcon = document.querySelector('#mobile-theme-toggle i');
+            
+            if (isLight) {
+                icon.className = 'fas fa-moon text-gray-800';
+                mobileIcon.className = 'fas fa-moon text-gray-800 mr-2';
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.className = 'fas fa-sun text-yellow-400';
+                mobileIcon.className = 'fas fa-sun text-yellow-400 mr-2';
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            // Reinitialize 3D with new theme
+            if (scene) {
+                const container = document.getElementById('threejs-container');
+                container.innerHTML = '';
+                skillCards = [];
+                init3D();
+            }
+        }
+        
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        } else {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        }
+        
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
+
         // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
     </script>
+    
+    <style>
+        /* Light Theme Styles */
+        .light-theme {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+        }
+        
+        .light-theme nav {
+            background-color: rgba(241, 245, 249, 0.9) !important;
+            border-bottom-color: #cbd5e1 !important;
+        }
+        
+        .light-theme .bg-dark-light {
+            background-color: #e2e8f0 !important;
+        }
+        
+        .light-theme .bg-dark {
+            background-color: #e2e8f0 !important;
+        }
+        
+        .light-theme .text-gray-300 {
+            color: #475569 !important;
+        }
+        
+        .light-theme .text-gray-400 {
+            color: #64748b !important;
+        }
+        
+        .light-theme .text-white {
+            color: #0f172a !important;
+        }
+        
+        .light-theme footer {
+            background-color: #f1f5f9 !important;
+            border-top-color: #e2e8f0 !important;
+        }
+    </style>
 </body>
 </html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Trust Benard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white overflow-x-hidden relative">
+    <canvas id="starry-code" class="fixed inset-0 w-full h-full z-0"></canvas>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="resume.html" class="text-primary">Resume</a>
+                    <a href="games.html" class="hover:text-primary transition-colors">Games</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <button id="theme-toggle" class="ml-4 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun text-yellow-400" id="theme-icon"></i>
+                    </button>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="hover:text-primary transition-colors py-2">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors py-2">Projects</a>
+                    <a href="resume.html" class="text-primary py-2">Resume</a>
+                    <a href="games.html" class="hover:text-primary transition-colors py-2">Games</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
+                    <button id="mobile-theme-toggle" class="mt-2 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors w-full">
+                        <i class="fas fa-sun text-yellow-400 mr-2"></i>Toggle Theme
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Resume Section -->
+    <section class="pt-24 pb-20 overflow-x-hidden relative z-10">
+        <div class="container mx-auto px-4 max-w-full">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6" data-aos="fade-up">My Resume</h1>
+                <p class="text-gray-400 mb-8 px-4 sm:px-0" data-aos="fade-up" data-aos-delay="100">
+                    Download my complete resume or view my experience and qualifications below
+                </p>
+                <button class="bg-primary hover:bg-primary/80 px-8 py-3 rounded-full transition-all transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-download mr-2"></i>
+                    Download Resume
+                </button>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 overflow-x-hidden">
+                <!-- Experience -->
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-bold mb-8 text-primary">Experience</h2>
+                    <div class="space-y-8">
+                        <div class="relative pl-8 border-l-2 border-primary">
+                            <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                            <h3 class="text-xl font-semibold mb-2">Freelance Web Developer</h3>
+                            <p class="text-primary mb-2">Upwork • Remote • 2021 - Present</p>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Built 30+ responsive websites for international clients</li>
+                                <li>• Specialized in modern JavaScript frameworks and libraries</li>
+                                <li>• Maintained 100% client satisfaction rating</li>
+                                <li>• Delivered projects on time and within budget</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="relative pl-8 border-l-2 border-primary">
+                            <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                            <h3 class="text-xl font-semibold mb-2">Web Developer & WordPress Designer</h3>
+                            <p class="text-primary mb-2">Ignyte Media • Remote • 2019 - Present</p>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Developed custom WordPress themes and plugins</li>
+                                <li>• Optimized websites for performance and SEO</li>
+                                <li>• Collaborated with design teams on UI/UX improvements</li>
+                                <li>• Maintained and updated existing client websites</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Skills -->
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl font-bold mb-8 text-primary">Education & Certifications</h2>
+                    <div class="space-y-8 mb-12">
+                        <div class="relative pl-8 border-l-2 border-primary">
+                            <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                            <h3 class="text-xl font-semibold mb-2">Web Development Bootcamp</h3>
+                            <p class="text-primary mb-2">Udemy • 2021 - Present</p>
+                            <p class="text-gray-300 px-2 sm:px-0">Comprehensive training in HTML, CSS, JavaScript, Node.js, Express.js, and modern web development practices.</p>
+                        </div>
+                        
+                        <div class="relative pl-8 border-l-2 border-primary">
+                            <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                            <h3 class="text-xl font-semibold mb-2">Responsive Web Design Certification</h3>
+                            <p class="text-primary mb-2">FreeCodeCamp • 2021</p>
+                            <p class="text-gray-300 px-2 sm:px-0">Certified in responsive web design principles and mobile-first development approaches.</p>
+                        </div>
+                        
+                        <div class="relative pl-8 border-l-2 border-primary">
+                            <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                            <h3 class="text-xl font-semibold mb-2">JavaScript for Beginners</h3>
+                            <p class="text-primary mb-2">Traversy Media • 2021</p>
+                            <p class="text-gray-300 px-2 sm:px-0">Foundation course in JavaScript programming and DOM manipulation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Technical Skills -->
+                    <h3 class="text-2xl font-bold mb-6 text-primary">Technical Skills</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-dark-light p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Frontend</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• HTML5 & CSS3</li>
+                                <li>• JavaScript (ES6+)</li>
+                                <li>• Bootstrap & Tailwind</li>
+                                <li>• Responsive Design</li>
+                            </ul>
+                        </div>
+                        <div class="bg-dark-light p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Backend</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Node.js & Express.js</li>
+                                <li>• EJS Templating</li>
+                                <li>• RESTful APIs</li>
+                                <li>• Database Integration</li>
+                            </ul>
+                        </div>
+                        <div class="bg-dark-light p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Tools & CMS</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Git & GitHub</li>
+                                <li>• WordPress</li>
+                                <li>• Webflow</li>
+                                <li>• VS Code</li>
+                            </ul>
+                        </div>
+                        <div class="bg-dark-light p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Soft Skills</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Problem Solving</li>
+                                <li>• Client Communication</li>
+                                <li>• Project Management</li>
+                                <li>• Team Collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="mt-20 overflow-x-hidden">
+                <h2 class="text-3xl font-bold text-center mb-12 text-primary" data-aos="fade-up">Key Achievements</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                    <div class="text-center bg-dark-light p-6 sm:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">100% Client Satisfaction</h3>
+                        <p class="text-gray-400 px-2 sm:px-0">Maintained perfect rating across all freelance projects</p>
+                    </div>
+                    
+                    <div class="text-center bg-dark-light p-6 sm:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">32+ Projects Delivered</h3>
+                        <p class="text-gray-400 px-2 sm:px-0">Successfully completed diverse web development projects</p>
+                    </div>
+                    
+                    <div class="text-center bg-dark-light p-6 sm:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">On-Time Delivery</h3>
+                        <p class="text-gray-400 px-2 sm:px-0">Consistent track record of meeting project deadlines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        // Enhanced Falling Code Background
+        const canvas = document.getElementById('starry-code');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        const codeChars = ['0', '1', '{', '}', '<', '>', '/', '=', ';', '(', ')', '[', ']', '+', '-', '*', 'function', 'const', 'let', 'var', 'if', 'else', 'return'];
+        const particles = [];
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.char = codeChars[Math.floor(Math.random() * codeChars.length)];
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.3 + 0.1;
+                this.size = Math.random() * 16 + 10;
+            }
+            
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height) {
+                    this.y = -this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            
+            draw() {
+                const isLight = document.body.classList.contains('light-theme');
+                const color = isLight ? '71, 85, 105' : '16, 185, 129';
+                ctx.fillStyle = `rgba(${color}, ${this.opacity * 0.5})`;
+                ctx.font = `${this.size}px monospace`;
+                ctx.fillText(this.char, this.x, this.y);
+            }
+        }
+        
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            document.body.classList.toggle('dark-theme');
+            
+            const isLight = document.body.classList.contains('light-theme');
+            const icon = document.getElementById('theme-icon');
+            const mobileIcon = document.querySelector('#mobile-theme-toggle i');
+            
+            if (isLight) {
+                icon.className = 'fas fa-moon text-gray-800';
+                mobileIcon.className = 'fas fa-moon text-gray-800 mr-2';
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.className = 'fas fa-sun text-yellow-400';
+                mobileIcon.className = 'fas fa-sun text-yellow-400 mr-2';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        } else {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        }
+        
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+    
+    <style>
+        * {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .light-theme {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+        }
+        
+        .light-theme nav {
+            background-color: rgba(241, 245, 249, 0.9) !important;
+            border-bottom-color: #cbd5e1 !important;
+        }
+        
+        .light-theme .bg-dark-light {
+            background-color: #e2e8f0 !important;
+        }
+        
+        .light-theme .bg-dark {
+            background-color: #e2e8f0 !important;
+        }
+        
+        .light-theme .text-gray-300 {
+            color: #475569 !important;
+        }
+        
+        .light-theme .text-gray-400 {
+            color: #64748b !important;
+        }
+        
+        .light-theme .text-white {
+            color: #0f172a !important;
+        }
+        
+        .light-theme footer {
+            background-color: #f1f5f9 !important;
+            border-top-color: #e2e8f0 !important;
+        }
+    </style>
+</body>
+</html>

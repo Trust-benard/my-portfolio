@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Trust Benard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white overflow-x-hidden relative">
+    <canvas id="starry-code" class="fixed inset-0 w-full h-full z-0"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="resume.html" class="hover:text-primary transition-colors">Resume</a>
+                    <a href="games.html" class="text-primary">Games</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <button id="theme-toggle" class="ml-4 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun text-yellow-400" id="theme-icon"></i>
+                    </button>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="hover:text-primary transition-colors py-2">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors py-2">Projects</a>
+                    <a href="resume.html" class="hover:text-primary transition-colors py-2">Resume</a>
+                    <a href="games.html" class="text-primary py-2">Games</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
+                    <button id="mobile-theme-toggle" class="mt-2 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors w-full">
+                        <i class="fas fa-sun text-yellow-400 mr-2"></i>Toggle Theme
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Games Section -->
+    <section class="pt-24 pb-20 overflow-x-hidden relative z-10">
+        <div class="container mx-auto px-4 max-w-full">
+            <h1 class="text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">Interactive Games</h1>
+            
+            <!-- Tic-Tac-Toe Game -->
+            <div class="max-w-md mx-auto bg-dark-light p-8 rounded-2xl" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-center mb-6 text-primary">Tic-Tac-Toe</h2>
+                
+                <!-- Game Mode Selection -->
+                <div class="text-center mb-6">
+                    <div class="flex justify-center space-x-4 mb-4">
+                        <button id="human-mode" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded-lg transition-colors text-sm">
+                            vs Human
+                        </button>
+                        <button id="computer-mode" class="bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded-lg transition-colors text-sm">
+                            vs Computer
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Game Status -->
+                <div class="text-center mb-6">
+                    <p id="game-status" class="text-lg mb-4">Player X's turn</p>
+                    <div class="flex justify-center space-x-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary" id="score-x">0</div>
+                            <div class="text-sm text-gray-400">Player X</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-gray-400" id="score-ties">0</div>
+                            <div class="text-sm text-gray-400">Ties</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-red-400" id="score-o">0</div>
+                            <div class="text-sm text-gray-400">Player O</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Board -->
+                <div id="game-board" class="grid grid-cols-3 gap-2 mb-6">
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="0"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="1"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="2"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="3"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="4"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="5"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="6"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="7"></button>
+                    <button class="cell w-20 h-20 bg-dark border-2 border-gray-600 rounded-lg text-3xl font-bold hover:bg-gray-700 transition-colors" data-index="8"></button>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="text-center">
+                    <button id="reset-game" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded-lg transition-colors mr-4">
+                        New Game
+                    </button>
+                    <button id="reset-scores" class="bg-gray-600 hover:bg-gray-500 px-6 py-2 rounded-lg transition-colors">
+                        Reset Scores
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Falling Code Background
+        const canvas = document.getElementById('starry-code');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        const codeChars = ['0', '1', '{', '}', '<', '>', '/', '=', ';', '(', ')', '[', ']', '+', '-', '*', 'function', 'const', 'let', 'var', 'if', 'else', 'return'];
+        const particles = [];
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.char = codeChars[Math.floor(Math.random() * codeChars.length)];
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.3 + 0.1;
+                this.size = Math.random() * 16 + 10;
+            }
+            
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height) {
+                    this.y = -this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            
+            draw() {
+                const isLight = document.body.classList.contains('light-theme');
+                const color = isLight ? '71, 85, 105' : '16, 185, 129';
+                ctx.fillStyle = `rgba(${color}, ${this.opacity * 0.5})`;
+                ctx.font = `${this.size}px monospace`;
+                ctx.fillText(this.char, this.x, this.y);
+            }
+        }
+        
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+
+        // Tic-Tac-Toe Game Logic
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+        let gameActive = true;
+        let scores = { X: 0, O: 0, ties: 0 };
+        let gameMode = 'human'; // 'human' or 'computer'
+        let isComputerTurn = false;
+
+        const cells = document.querySelectorAll('.cell');
+        const gameStatus = document.getElementById('game-status');
+        const scoreX = document.getElementById('score-x');
+        const scoreO = document.getElementById('score-o');
+        const scoreTies = document.getElementById('score-ties');
+        const resetGameBtn = document.getElementById('reset-game');
+        const resetScoresBtn = document.getElementById('reset-scores');
+        const humanModeBtn = document.getElementById('human-mode');
+        const computerModeBtn = document.getElementById('computer-mode');
+
+        const winningConditions = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        function handleCellClick(e) {
+            const index = parseInt(e.target.getAttribute('data-index'));
+            
+            if (board[index] !== '' || !gameActive || isComputerTurn) return;
+            
+            makeMove(index, currentPlayer);
+            
+            if (gameMode === 'computer' && gameActive && currentPlayer === 'O') {
+                isComputerTurn = true;
+                setTimeout(() => {
+                    computerMove();
+                    isComputerTurn = false;
+                }, 500);
+            }
+        }
+        
+        function makeMove(index, player) {
+            board[index] = player;
+            cells[index].textContent = player;
+            cells[index].style.color = player === 'X' ? '#10b981' : '#f87171';
+            checkResult();
+        }
+        
+        function computerMove() {
+            if (!gameActive) return;
+            
+            // Simple AI: Try to win, block player, or pick random
+            let move = findBestMove();
+            if (move !== -1) {
+                makeMove(move, 'O');
+            }
+        }
+        
+        function findBestMove() {
+            // Check if computer can win
+            for (let i = 0; i < 9; i++) {
+                if (board[i] === '') {
+                    board[i] = 'O';
+                    if (checkWinner('O')) {
+                        board[i] = '';
+                        return i;
+                    }
+                    board[i] = '';
+                }
+            }
+            
+            // Check if need to block player
+            for (let i = 0; i < 9; i++) {
+                if (board[i] === '') {
+                    board[i] = 'X';
+                    if (checkWinner('X')) {
+                        board[i] = '';
+                        return i;
+                    }
+                    board[i] = '';
+                }
+            }
+            
+            // Take center if available
+            if (board[4] === '') return 4;
+            
+            // Take random available spot
+            const available = [];
+            for (let i = 0; i < 9; i++) {
+                if (board[i] === '') available.push(i);
+            }
+            return available.length > 0 ? available[Math.floor(Math.random() * available.length)] : -1;
+        }
+        
+        function checkWinner(player) {
+            return winningConditions.some(condition => 
+                condition.every(index => board[index] === player)
+            );
+        }
+
+        function checkResult() {
+            let roundWon = false;
+            
+            for (let i = 0; i < winningConditions.length; i++) {
+                const [a, b, c] = winningConditions[i];
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    roundWon = true;
+                    // Highlight winning cells
+                    cells[a].style.backgroundColor = '#10b981';
+                    cells[b].style.backgroundColor = '#10b981';
+                    cells[c].style.backgroundColor = '#10b981';
+                    break;
+                }
+            }
+
+            if (roundWon) {
+                gameStatus.textContent = `Player ${currentPlayer} wins!`;
+                scores[currentPlayer]++;
+                updateScores();
+                gameActive = false;
+                return;
+            }
+
+            if (!board.includes('')) {
+                gameStatus.textContent = "It's a tie!";
+                scores.ties++;
+                updateScores();
+                gameActive = false;
+                return;
+            }
+
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            if (gameMode === 'computer' && currentPlayer === 'O') {
+                gameStatus.textContent = "Computer's turn";
+            } else {
+                gameStatus.textContent = `Player ${currentPlayer}'s turn`;
+            }
+        }
+
+        function updateScores() {
+            scoreX.textContent = scores.X;
+            scoreO.textContent = scores.O;
+            scoreTies.textContent = scores.ties;
+        }
+
+        function resetGame() {
+            board = ['', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            gameActive = true;
+            isComputerTurn = false;
+            gameStatus.textContent = "Player X's turn";
+            
+            cells.forEach(cell => {
+                cell.textContent = '';
+                cell.style.backgroundColor = '';
+                cell.style.color = '';
+            });
+        }
+        
+        function setGameMode(mode) {
+            gameMode = mode;
+            if (mode === 'human') {
+                humanModeBtn.className = 'bg-primary hover:bg-primary/80 px-4 py-2 rounded-lg transition-colors text-sm';
+                computerModeBtn.className = 'bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded-lg transition-colors text-sm';
+                scoreO.nextElementSibling.textContent = 'Player O';
+            } else {
+                humanModeBtn.className = 'bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded-lg transition-colors text-sm';
+                computerModeBtn.className = 'bg-primary hover:bg-primary/80 px-4 py-2 rounded-lg transition-colors text-sm';
+                scoreO.nextElementSibling.textContent = 'Computer';
+            }
+            resetGame();
+        }
+
+        function resetScores() {
+            scores = { X: 0, O: 0, ties: 0 };
+            updateScores();
+            resetGame();
+        }
+
+        // Event Listeners
+        cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+        resetGameBtn.addEventListener('click', resetGame);
+        resetScoresBtn.addEventListener('click', resetScores);
+        humanModeBtn.addEventListener('click', () => setGameMode('human'));
+        computerModeBtn.addEventListener('click', () => setGameMode('computer'));
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            document.body.classList.toggle('dark-theme');
+            
+            const isLight = document.body.classList.contains('light-theme');
+            const icon = document.getElementById('theme-icon');
+            const mobileIcon = document.querySelector('#mobile-theme-toggle i');
+            
+            if (isLight) {
+                icon.className = 'fas fa-moon text-gray-800';
+                mobileIcon.className = 'fas fa-moon text-gray-800 mr-2';
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.className = 'fas fa-sun text-yellow-400';
+                mobileIcon.className = 'fas fa-sun text-yellow-400 mr-2';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        } else {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        }
+        
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+    
+    <style>
+        .light-theme {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+        }
+        
+        .light-theme nav {
+            background-color: rgba(241, 245, 249, 0.9) !important;
+            border-bottom-color: #cbd5e1 !important;
+        }
+        
+        .light-theme .bg-dark-light {
+            background-color: #e2e8f0 !important;
+        }
+        
+        .light-theme .bg-dark {
+            background-color: #f1f5f9 !important;
+        }
+        
+        .light-theme .text-gray-300 {
+            color: #475569 !important;
+        }
+        
+        .light-theme .text-gray-400 {
+            color: #64748b !important;
+        }
+        
+        .light-theme .text-white {
+            color: #0f172a !important;
+        }
+        
+        .light-theme .cell {
+            background-color: #e2e8f0 !important;
+            border-color: #cbd5e1 !important;
+        }
+        
+        .light-theme .cell:hover {
+            background-color: #cbd5e1 !important;
+        }
+    </style>
+</body>
+</html>

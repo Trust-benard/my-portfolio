@@ -21,32 +21,54 @@
         }
     </script>
 </head>
-<body class="bg-dark text-white">
+<body class="bg-dark text-white overflow-x-hidden relative">
+    <canvas id="starry-code" class="fixed inset-0 w-full h-full z-0"></canvas>
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="hover:text-primary transition-colors">Home</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
                     <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="resume.html" class="hover:text-primary transition-colors">Resume</a>
+                    <a href="games.html" class="hover:text-primary transition-colors">Games</a>
                     <a href="contact.html" class="text-primary">Contact</a>
+                    <button id="theme-toggle" class="ml-4 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun text-yellow-400" id="theme-icon"></i>
+                    </button>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="hover:text-primary transition-colors py-2">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
+                    <a href="projects.html" class="hover:text-primary transition-colors py-2">Projects</a>
+                    <a href="resume.html" class="hover:text-primary transition-colors py-2">Resume</a>
+                    <a href="games.html" class="hover:text-primary transition-colors py-2">Games</a>
+                    <a href="contact.html" class="text-primary py-2">Contact</a>
+                    <button id="mobile-theme-toggle" class="mt-2 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors w-full">
+                        <i class="fas fa-sun text-yellow-400 mr-2"></i>Toggle Theme
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Contact Section -->
-    <section class="pt-24 pb-20">
-        <div class="container mx-auto px-4">
+    <section class="pt-24 pb-20 overflow-x-hidden relative z-10">
+        <div class="container mx-auto px-4 max-w-full">
             <h1 class="text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">Get In Touch</h1>
             
-            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 overflow-x-hidden">
                 <!-- Contact Info -->
                 <div data-aos="fade-right">
                     <h2 class="text-2xl font-semibold mb-6">Let's Work Together</h2>
-                    <p class="text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-gray-300 mb-8 leading-relaxed px-4 sm:px-0">
                         I'm always interested in new opportunities and exciting projects. 
                         Whether you need a website built from scratch, want to improve an existing site, 
                         or have any questions about web development, I'd love to hear from you.
@@ -151,15 +173,15 @@
             </div>
             
             <!-- Services -->
-            <div class="mt-20">
+            <div class="mt-20 overflow-x-hidden">
                 <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Services I Offer</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
                             <i class="fas fa-code text-2xl text-primary"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4 text-center">Web Development</h3>
-                        <p class="text-gray-400 text-center">Custom websites built with modern technologies and best practices.</p>
+                        <p class="text-gray-400 text-center px-4 sm:px-0">Custom websites built with modern technologies and best practices.</p>
                     </div>
                     
                     <div class="service-card" data-aos="fade-up" data-aos-delay="200">
@@ -167,7 +189,7 @@
                             <i class="fab fa-wordpress text-2xl text-primary"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4 text-center">WordPress Development</h3>
-                        <p class="text-gray-400 text-center">Custom WordPress themes and plugins for your business needs.</p>
+                        <p class="text-gray-400 text-center px-4 sm:px-0">Custom WordPress themes and plugins for your business needs.</p>
                     </div>
                     
                     <div class="service-card" data-aos="fade-up" data-aos-delay="300">
@@ -175,7 +197,7 @@
                             <i class="fas fa-mobile-alt text-2xl text-primary"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4 text-center">Responsive Design</h3>
-                        <p class="text-gray-400 text-center">Mobile-first designs that work perfectly on all devices.</p>
+                        <p class="text-gray-400 text-center px-4 sm:px-0">Mobile-first designs that work perfectly on all devices.</p>
                     </div>
                 </div>
             </div>
@@ -185,11 +207,154 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+        
+        // Enhanced Falling Code Background
+        const canvas = document.getElementById('starry-code');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        const codeChars = ['0', '1', '{', '}', '<', '>', '/', '=', ';', '(', ')', '[', ']', '+', '-', '*', 'function', 'const', 'let', 'var', 'if', 'else', 'return'];
+        const particles = [];
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.char = codeChars[Math.floor(Math.random() * codeChars.length)];
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.3 + 0.1;
+                this.size = Math.random() * 16 + 10;
+            }
+            
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height) {
+                    this.y = -this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            
+            draw() {
+                const isLight = document.body.classList.contains('light-theme');
+                const color = isLight ? '71, 85, 105' : '16, 185, 129';
+                ctx.fillStyle = `rgba(${color}, ${this.opacity * 0.5})`;
+                ctx.font = `${this.size}px monospace`;
+                ctx.fillText(this.char, this.x, this.y);
+            }
+        }
+        
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            document.body.classList.toggle('dark-theme');
+            
+            const isLight = document.body.classList.contains('light-theme');
+            const icon = document.getElementById('theme-icon');
+            const mobileIcon = document.querySelector('#mobile-theme-toggle i');
+            
+            if (isLight) {
+                icon.className = 'fas fa-moon text-gray-800';
+                mobileIcon.className = 'fas fa-moon text-gray-800 mr-2';
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.className = 'fas fa-sun text-yellow-400';
+                mobileIcon.className = 'fas fa-sun text-yellow-400 mr-2';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        } else {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        }
+        
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
     </script>
+    
+    <style>
+        .light-theme {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+        }
+        
+        .light-theme nav {
+            background-color: rgba(241, 245, 249, 0.9) !important;
+            border-bottom-color: #cbd5e1 !important;
+        }
+        
+        .light-theme .bg-dark-light {
+            background-color: #e2e8f0 !important;
+        }
+        
+        .light-theme .bg-dark {
+            background-color: #e2e8f0 !important;
+        }
+        
+        .light-theme .text-gray-300 {
+            color: #475569 !important;
+        }
+        
+        .light-theme .text-gray-400 {
+            color: #64748b !important;
+        }
+        
+        .light-theme .text-white {
+            color: #0f172a !important;
+        }
+        
+        .light-theme footer {
+            background-color: #f1f5f9 !important;
+            border-top-color: #e2e8f0 !important;
+        }
+    </style>
 
     <style>
         .service-card {
-            @apply bg-dark-light p-8 rounded-2xl hover:bg-gray-700 transition-all transform hover:scale-105;
+            @apply bg-dark-light p-6 sm:p-8 rounded-2xl hover:bg-gray-700 transition-all transform hover:scale-105;
+        }
+        
+        * {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        @media (max-width: 640px) {
+            .service-card h3 {
+                font-size: 1.125rem;
+            }
         }
     </style>
 </body>
