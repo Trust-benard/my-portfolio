@@ -27,21 +27,39 @@
     <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <div class="text-xl sm:text-2xl font-bold text-primary">Trust Benard</div>
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/logo.svg" alt="Trust Benard" class="h-8 w-auto">
+                </a>
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="hover:text-primary transition-colors">Home</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
                     <a href="projects.html" class="text-primary">Projects</a>
                     <a href="resume.html" class="hover:text-primary transition-colors">Resume</a>
-                    <a href="games.html" class="hover:text-primary transition-colors">Games</a>
                     <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
-                    <button id="theme-toggle" class="ml-4 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
-                        <i class="fas fa-sun text-yellow-400" id="theme-icon"></i>
+                    <button id="theme-toggle" class="ml-4 relative w-16 h-8 bg-gray-700 rounded-full p-1 transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <div class="absolute inset-0 flex items-center justify-between px-2 text-xs">
+                            <i class="fas fa-sun text-yellow-400"></i>
+                            <i class="fas fa-moon text-gray-300"></i>
+                        </div>
+                        <div id="theme-slider" class="relative w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+                            <i class="fas fa-sun text-yellow-500 text-sm" id="theme-icon"></i>
+                        </div>
                     </button>
                 </div>
-                <button class="md:hidden text-white" id="mobile-menu-btn">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="mobile-theme-toggle" class="relative w-16 h-8 bg-gray-700 rounded-full p-1 transition-all duration-300">
+                        <div class="absolute inset-0 flex items-center justify-between px-2 text-xs">
+                            <i class="fas fa-sun text-yellow-400"></i>
+                            <i class="fas fa-moon text-gray-300"></i>
+                        </div>
+                        <div id="mobile-theme-slider" class="relative w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+                            <i class="fas fa-sun text-yellow-500 text-sm" id="mobile-theme-icon"></i>
+                        </div>
+                    </button>
+                    <button class="text-white" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
@@ -49,11 +67,7 @@
                     <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
                     <a href="projects.html" class="text-primary py-2">Projects</a>
                     <a href="resume.html" class="hover:text-primary transition-colors py-2">Resume</a>
-                    <a href="games.html" class="hover:text-primary transition-colors py-2">Games</a>
                     <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
-                    <button id="mobile-theme-toggle" class="mt-2 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors w-full">
-                        <i class="fas fa-sun text-yellow-400 mr-2"></i>Toggle Theme
-                    </button>
                 </div>
             </div>
         </div>
@@ -240,16 +254,22 @@
             document.body.classList.toggle('dark-theme');
             
             const isLight = document.body.classList.contains('light-theme');
+            const slider = document.getElementById('theme-slider');
+            const mobileSlider = document.getElementById('mobile-theme-slider');
             const icon = document.getElementById('theme-icon');
-            const mobileIcon = document.querySelector('#mobile-theme-toggle i');
+            const mobileIcon = document.getElementById('mobile-theme-icon');
             
             if (isLight) {
-                icon.className = 'fas fa-moon text-gray-800';
-                mobileIcon.className = 'fas fa-moon text-gray-800 mr-2';
+                if (slider) slider.style.transform = 'translateX(32px)';
+                if (mobileSlider) mobileSlider.style.transform = 'translateX(32px)';
+                if (icon) icon.className = 'fas fa-moon text-gray-800 text-sm';
+                if (mobileIcon) mobileIcon.className = 'fas fa-moon text-gray-800 text-sm';
                 localStorage.setItem('theme', 'light');
             } else {
-                icon.className = 'fas fa-sun text-yellow-400';
-                mobileIcon.className = 'fas fa-sun text-yellow-400 mr-2';
+                if (slider) slider.style.transform = 'translateX(0px)';
+                if (mobileSlider) mobileSlider.style.transform = 'translateX(0px)';
+                if (icon) icon.className = 'fas fa-sun text-yellow-500 text-sm';
+                if (mobileIcon) mobileIcon.className = 'fas fa-sun text-yellow-500 text-sm';
                 localStorage.setItem('theme', 'dark');
             }
         }
@@ -259,6 +279,16 @@
         if (savedTheme === 'light') {
             document.body.classList.add('light-theme');
             document.body.classList.remove('dark-theme');
+            
+            const slider = document.getElementById('theme-slider');
+            const mobileSlider = document.getElementById('mobile-theme-slider');
+            const icon = document.getElementById('theme-icon');
+            const mobileIcon = document.getElementById('mobile-theme-icon');
+            
+            if (slider) slider.style.transform = 'translateX(32px)';
+            if (mobileSlider) mobileSlider.style.transform = 'translateX(32px)';
+            if (icon) icon.className = 'fas fa-moon text-gray-800 text-sm';
+            if (mobileIcon) mobileIcon.className = 'fas fa-moon text-gray-800 text-sm';
         } else {
             document.body.classList.add('dark-theme');
             document.body.classList.remove('light-theme');
@@ -308,6 +338,10 @@
             background-color: #f1f5f9 !important;
             border-top-color: #e2e8f0 !important;
         }
+        
+        .light-theme nav img {
+            filter: brightness(0) !important;
+        }
     </style>
 
     <style>
@@ -315,5 +349,12 @@
             @apply bg-dark-light rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl;
         }
     </style>
+    
+    <!-- Footer -->
+    <footer class="py-8 bg-dark border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm sm:text-base">&copy; 2022 Trust Benard. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
