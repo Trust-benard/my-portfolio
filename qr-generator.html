@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #2d3748;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #10b981;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .size-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .size-btn {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .size-btn.active {
+            border-color: #10b981;
+            background: #10b981;
+            color: white;
+        }
+        
+        .generate-btn {
+            width: 100%;
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .generate-btn:hover {
+            background: #059669;
+        }
+        
+        .result {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        #qrcode {
+            margin: 20px 0;
+        }
+        
+        .download-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .download-btn:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <a href="projects.html" class="back-btn">← Back</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>QR Code Generator</h1>
+            <p>Generate QR codes for any text, URL, or data</p>
+        </div>
+        
+        <div class="content">
+            <div class="input-group">
+                <label for="qr-type">QR Code Type</label>
+                <select id="qr-type" onchange="updatePlaceholder()">
+                    <option value="text">Text</option>
+                    <option value="url">URL/Website</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone Number</option>
+                    <option value="wifi">WiFi Password</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="qr-data">Content</label>
+                <textarea id="qr-data" placeholder="Enter text to generate QR code"></textarea>
+            </div>
+            
+            <div class="input-group">
+                <label>Size</label>
+                <div class="size-options">
+                    <button class="size-btn" onclick="selectSize(this, 128)">Small</button>
+                    <button class="size-btn active" onclick="selectSize(this, 256)">Medium</button>
+                    <button class="size-btn" onclick="selectSize(this, 512)">Large</button>
+                </div>
+            </div>
+            
+            <button class="generate-btn" onclick="generateQR()">Generate QR Code</button>
+            
+            <div class="result" id="result">
+                <div id="qrcode"></div>
+                <button class="download-btn" onclick="downloadQR('png')">Download PNG</button>
+                <button class="download-btn" onclick="downloadQR('svg')">Download SVG</button>
+                <div id="qr-share" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/share-buttons.js"></script>
+    <script>
+        let currentSize = 256;
+        let qrCanvas = null;
+        
+        function updatePlaceholder() {
+            const type = document.getElementById('qr-type').value;
+            const textarea = document.getElementById('qr-data');
+            
+            const placeholders = {
+                text: 'Enter any text',
+                url: 'https://example.com',
+                email: 'user@example.com',
+                phone: '+1234567890',
+                wifi: 'WIFI:T:WPA;S:NetworkName;P:Password;;'
+            };
+            
+            textarea.placeholder = placeholders[type];
+        }
+        
+        function selectSize(btn, size) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentSize = size;
+        }
+        
+        function generateQR() {
+            const data = document.getElementById('qr-data').value.trim();
+            const type = document.getElementById('qr-type').value;
+            
+            if (!data) {
+                alert('Please enter some content');
+                return;
+            }
+            
+            let qrData = data;
+            
+            // Format data based on type
+            if (type === 'email' && !data.startsWith('mailto:')) {
+                qrData = `mailto:${data}`;
+            } else if (type === 'phone' && !data.startsWith('tel:')) {
+                qrData = `tel:${data}`;
+            }
+            
+            // Clear previous QR code
+            document.getElementById('qrcode').innerHTML = '';
+            
+            // Generate QR code using API
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${currentSize}x${currentSize}&data=${encodeURIComponent(qrData)}`;
+            
+            const img = document.createElement('img');
+            img.src = qrUrl;
+            img.style.maxWidth = '100%';
+            img.style.border = '1px solid #e2e8f0';
+            img.style.borderRadius = '8px';
+            
+            document.getElementById('qrcode').appendChild(img);
+            document.getElementById('result').style.display = 'block';
+            
+            qrCanvas = img;
+        }
+        
+        function downloadQR(format) {
+            if (!qrCanvas) return;
+            
+            const data = document.getElementById('qr-data').value.trim();
+            const qrData = encodeURIComponent(data);
+            
+            let url;
+            if (format === 'svg') {
+                url = `https://api.qrserver.com/v1/create-qr-code/?size=${currentSize}x${currentSize}&format=svg&data=${qrData}`;
+            } else {
+                url = qrCanvas.src;
+            }
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `qrcode.${format}`;
+            link.click();
+        }
+        
+        // Initialize share buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const shareButtons = new ShareButtons({
+                url: window.location.href,
+                title: 'QR Code Generator - Trust Benard',
+                description: 'Generate QR codes for any text, URL, email, or data with this free online tool!'
+            });
+            shareButtons.createButtons('#qr-share');
+        });
+    </script>
+</body>
+</html>

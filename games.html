@@ -24,66 +24,107 @@
 <body class="bg-dark text-white overflow-x-hidden relative">
     <canvas id="starry-code" class="fixed inset-0 w-full h-full z-0"></canvas>
     
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="flex items-center">
-                    <img src="assets/logo.svg" alt="Trust Benard" class="h-8 w-auto">
-                </a>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
-                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
-                    <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
-                    <a href="resume.html" class="hover:text-primary transition-colors">Resume</a>
-                    <a href="games.html" class="text-primary">Games</a>
-                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
-                    <button id="theme-toggle" class="ml-4 relative w-16 h-8 bg-gray-700 rounded-full p-1 transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary">
-                        <div class="absolute inset-0 flex items-center justify-between px-2 text-xs">
-                            <i class="fas fa-sun text-yellow-400"></i>
-                            <i class="fas fa-moon text-gray-300"></i>
-                        </div>
-                        <div id="theme-slider" class="relative w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
-                            <i class="fas fa-sun text-yellow-500 text-sm" id="theme-icon"></i>
-                        </div>
-                    </button>
-                </div>
-                <div class="md:hidden flex items-center space-x-4">
-                    <button id="mobile-theme-toggle" class="relative w-16 h-8 bg-gray-700 rounded-full p-1 transition-all duration-300">
-                        <div class="absolute inset-0 flex items-center justify-between px-2 text-xs">
-                            <i class="fas fa-sun text-yellow-400"></i>
-                            <i class="fas fa-moon text-gray-300"></i>
-                        </div>
-                        <div id="mobile-theme-slider" class="relative w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
-                            <i class="fas fa-sun text-yellow-500 text-sm" id="mobile-theme-icon"></i>
-                        </div>
-                    </button>
-                    <button class="text-white" id="mobile-menu-btn">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <div class="flex flex-col space-y-2">
-                    <a href="index.html" class="hover:text-primary transition-colors py-2">Home</a>
-                    <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
-                    <a href="projects.html" class="hover:text-primary transition-colors py-2">Projects</a>
-                    <a href="resume.html" class="hover:text-primary transition-colors py-2">Resume</a>
-                    <a href="games.html" class="text-primary py-2">Games</a>
-                    <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Back Button -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="projects.html" class="bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Projects</span>
+        </a>
+    </div>
 
     <!-- Games Section -->
-    <section class="pt-24 pb-20 overflow-x-hidden relative z-10">
+    <section class="pt-16 pb-20 overflow-x-hidden relative z-10">
         <div class="container mx-auto px-4 max-w-full">
             <h1 class="text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">Interactive Games</h1>
             
-            <!-- Tic-Tac-Toe Game -->
-            <div class="max-w-md mx-auto bg-dark-light p-8 rounded-2xl" data-aos="fade-up">
-                <h2 class="text-2xl font-bold text-center mb-6 text-primary">Tic-Tac-Toe</h2>
+            <!-- Games Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                
+                <!-- Snake Game Card -->
+                <div class="game-card bg-dark-light p-6 rounded-2xl cursor-pointer hover:scale-105 transition-transform" data-aos="fade-up" data-game="snake">
+                    <h3 class="text-xl font-bold text-center mb-4 text-primary">Code Snake</h3>
+                    <div class="flex justify-center mb-4">
+                        <canvas width="150" height="150" class="border border-gray-600 rounded-lg bg-dark snake-preview"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mb-4">Classic snake with coding symbols</p>
+                    <div class="text-center">
+                        <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded-lg transition-colors text-sm">
+                            Play Game
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tic-Tac-Toe Game Card -->
+                <div class="game-card bg-dark-light p-6 rounded-2xl cursor-pointer hover:scale-105 transition-transform" data-aos="fade-up" data-game="tictactoe">
+                    <h3 class="text-xl font-bold text-center mb-4 text-primary">Tic-Tac-Toe</h3>
+                    <div class="flex justify-center mb-4">
+                        <div class="grid grid-cols-3 gap-1 w-32 h-32">
+                            <div class="bg-dark border border-gray-600 rounded flex items-center justify-center text-primary font-bold">X</div>
+                            <div class="bg-dark border border-gray-600 rounded flex items-center justify-center text-red-400 font-bold">O</div>
+                            <div class="bg-dark border border-gray-600 rounded"></div>
+                            <div class="bg-dark border border-gray-600 rounded flex items-center justify-center text-red-400 font-bold">O</div>
+                            <div class="bg-dark border border-gray-600 rounded flex items-center justify-center text-primary font-bold">X</div>
+                            <div class="bg-dark border border-gray-600 rounded"></div>
+                            <div class="bg-dark border border-gray-600 rounded"></div>
+                            <div class="bg-dark border border-gray-600 rounded flex items-center justify-center text-primary font-bold">X</div>
+                            <div class="bg-dark border border-gray-600 rounded"></div>
+                        </div>
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mb-4">Play vs Human or Computer</p>
+                    <div class="text-center">
+                        <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded-lg transition-colors text-sm">
+                            Play Game
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fullscreen Game Modal -->
+            <div id="game-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+                <div class="bg-dark-light rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 id="modal-title" class="text-3xl font-bold text-primary"></h2>
+                        <button id="close-modal" class="text-gray-400 hover:text-white text-2xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Snake Game Content -->
+                    <div id="snake-game-content" class="hidden">
+                        <div class="text-center mb-6">
+                            <div class="flex justify-center space-x-6 mb-4">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-primary" id="snake-score">0</div>
+                                    <div class="text-sm text-gray-400">Score</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-yellow-400" id="snake-high-score">0</div>
+                                    <div class="text-sm text-gray-400">High Score</div>
+                                </div>
+                            </div>
+                            <p id="snake-status" class="text-lg mb-4">Click Start or press SPACE to begin</p>
+                        </div>
+                        <div class="flex justify-center mb-6">
+                            <canvas id="snake-canvas" width="400" height="400" class="border-2 border-gray-600 rounded-lg bg-dark"></canvas>
+                        </div>
+                        <div class="text-center mb-4">
+                            <button id="snake-start" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded-lg transition-colors mr-4">
+                                Start Game
+                            </button>
+                            <button id="snake-reset" class="bg-gray-600 hover:bg-gray-500 px-6 py-2 rounded-lg transition-colors">
+                                Reset
+                            </button>
+                        </div>
+                        <div class="text-center text-sm text-gray-400">
+                            <p>Use WASD or Arrow Keys to move</p>
+                            <p>Eat code symbols to grow and score!</p>
+                        </div>
+                    </div>
+
+                    <!-- Tic-Tac-Toe Game Content -->
+                    <div id="tictactoe-game-content" class="hidden">
+                        <div class="max-w-md mx-auto">
+
                 
                 <!-- Game Mode Selection -->
                 <div class="text-center mb-6">
@@ -137,6 +178,8 @@
                     <button id="reset-scores" class="bg-gray-600 hover:bg-gray-500 px-6 py-2 rounded-lg transition-colors">
                         Reset Scores
                     </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -388,59 +431,311 @@
         humanModeBtn.addEventListener('click', () => setGameMode('human'));
         computerModeBtn.addEventListener('click', () => setGameMode('computer'));
 
-        // Theme Toggle
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-            document.body.classList.toggle('dark-theme');
+        // Snake Game Logic
+        const snakeCanvas = document.getElementById('snake-canvas');
+        const snakeCtx = snakeCanvas.getContext('2d');
+        const snakeScoreEl = document.getElementById('snake-score');
+        const snakeHighScoreEl = document.getElementById('snake-high-score');
+        const snakeStatusEl = document.getElementById('snake-status');
+        const snakeStartBtn = document.getElementById('snake-start');
+        const snakeResetBtn = document.getElementById('snake-reset');
+
+        const GRID_SIZE = 20;
+        const CANVAS_SIZE = 400;
+        const GRID_COUNT = CANVAS_SIZE / GRID_SIZE;
+
+        let snake = [{ x: 10, y: 10 }];
+        let food = { x: 15, y: 15 };
+        let dx = 0, dy = 0;
+        let snakeScore = 0;
+        let snakeHighScore = localStorage.getItem('snakeHighScore') || 0;
+        let snakeGameRunning = false;
+        let snakeGameLoop;
+        let gameSpeed = 200;
+        let blocksEaten = 0;
+
+        const codeSymbols = ['{', '}', '<', '>', '/', '=', ';', '(', ')', '[', ']', '+', '-', '*'];
+        let currentFoodSymbol = codeSymbols[0];
+
+        snakeHighScoreEl.textContent = snakeHighScore;
+
+        function drawSnakeGame() {
+            snakeCtx.fillStyle = '#0f172a';
+            snakeCtx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+
+            // Draw snake
+            snakeCtx.fillStyle = '#10b981';
+            snake.forEach(segment => {
+                snakeCtx.fillRect(segment.x * GRID_SIZE, segment.y * GRID_SIZE, GRID_SIZE - 2, GRID_SIZE - 2);
+            });
+
+            // Draw food with code symbol
+            snakeCtx.fillStyle = '#f59e0b';
+            snakeCtx.fillRect(food.x * GRID_SIZE, food.y * GRID_SIZE, GRID_SIZE - 2, GRID_SIZE - 2);
             
-            const isLight = document.body.classList.contains('light-theme');
-            const slider = document.getElementById('theme-slider');
-            const mobileSlider = document.getElementById('mobile-theme-slider');
-            const icon = document.getElementById('theme-icon');
-            const mobileIcon = document.getElementById('mobile-theme-icon');
-            
-            if (isLight) {
-                if (slider) slider.style.transform = 'translateX(32px)';
-                if (mobileSlider) mobileSlider.style.transform = 'translateX(32px)';
-                if (icon) icon.className = 'fas fa-moon text-gray-800 text-sm';
-                if (mobileIcon) mobileIcon.className = 'fas fa-moon text-gray-800 text-sm';
-                localStorage.setItem('theme', 'light');
+            snakeCtx.fillStyle = '#0f172a';
+            snakeCtx.font = '14px monospace';
+            snakeCtx.textAlign = 'center';
+            snakeCtx.fillText(currentFoodSymbol, food.x * GRID_SIZE + GRID_SIZE/2, food.y * GRID_SIZE + GRID_SIZE/2 + 5);
+        }
+
+        function updateSnake() {
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+
+            // Check wall collision
+            if (head.x < 0 || head.x >= GRID_COUNT || head.y < 0 || head.y >= GRID_COUNT) {
+                endSnakeGame();
+                return;
+            }
+
+            // Check self collision
+            if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                endSnakeGame();
+                return;
+            }
+
+            snake.unshift(head);
+
+            // Check food collision
+            if (head.x === food.x && head.y === food.y) {
+                snakeScore += 10;
+                blocksEaten++;
+                snakeScoreEl.textContent = snakeScore;
+                
+                // Increase speed every 10 blocks
+                if (blocksEaten % 10 === 0 && gameSpeed > 80) {
+                    gameSpeed -= 15;
+                    clearInterval(snakeGameLoop);
+                    snakeGameLoop = setInterval(() => {
+                        updateSnake();
+                        drawSnakeGame();
+                    }, gameSpeed);
+                }
+                
+                generateFood();
             } else {
-                if (slider) slider.style.transform = 'translateX(0px)';
-                if (mobileSlider) mobileSlider.style.transform = 'translateX(0px)';
-                if (icon) icon.className = 'fas fa-sun text-yellow-500 text-sm';
-                if (mobileIcon) mobileIcon.className = 'fas fa-sun text-yellow-500 text-sm';
-                localStorage.setItem('theme', 'dark');
+                snake.pop();
             }
         }
+
+        function generateFood() {
+            food = {
+                x: Math.floor(Math.random() * GRID_COUNT),
+                y: Math.floor(Math.random() * GRID_COUNT)
+            };
+            
+            // Ensure food doesn't spawn on snake
+            while (snake.some(segment => segment.x === food.x && segment.y === food.y)) {
+                food = {
+                    x: Math.floor(Math.random() * GRID_COUNT),
+                    y: Math.floor(Math.random() * GRID_COUNT)
+                };
+            }
+            
+            currentFoodSymbol = codeSymbols[Math.floor(Math.random() * codeSymbols.length)];
+        }
+
+        function startSnakeGame() {
+            if (snakeGameRunning) return;
+            
+            // If no direction set, start moving right
+            if (dx === 0 && dy === 0) {
+                dx = 1;
+                dy = 0;
+            }
+            
+            snakeGameRunning = true;
+            snakeStatusEl.textContent = 'Game Running - Use WASD or Arrow Keys';
+            snakeStartBtn.textContent = 'Pause';
+            
+            snakeGameLoop = setInterval(() => {
+                updateSnake();
+                drawSnakeGame();
+            }, gameSpeed);
+        }
+
+        function pauseSnakeGame() {
+            snakeGameRunning = false;
+            clearInterval(snakeGameLoop);
+            snakeStatusEl.textContent = 'Game Paused - Press SPACE to continue';
+            snakeStartBtn.textContent = 'Resume';
+        }
+
+        function endSnakeGame() {
+            snakeGameRunning = false;
+            clearInterval(snakeGameLoop);
+            snakeStatusEl.textContent = 'Game Over - Press SPACE to restart';
+            snakeStartBtn.textContent = 'Start Game';
+            
+            if (snakeScore > snakeHighScore) {
+                snakeHighScore = snakeScore;
+                snakeHighScoreEl.textContent = snakeHighScore;
+                localStorage.setItem('snakeHighScore', snakeHighScore);
+            }
+        }
+
+        function resetSnakeGame() {
+            snakeGameRunning = false;
+            clearInterval(snakeGameLoop);
+            snake = [{ x: 10, y: 10 }];
+            dx = 0;
+            dy = 0;
+            snakeScore = 0;
+            blocksEaten = 0;
+            gameSpeed = 200;
+            snakeScoreEl.textContent = snakeScore;
+            snakeStatusEl.textContent = 'Click Start or press SPACE to begin';
+            snakeStartBtn.textContent = 'Start Game';
+            generateFood();
+            drawSnakeGame();
+        }
+
+        // Snake Game Controls
+        document.addEventListener('keydown', (e) => {
+            // Only handle snake controls when snake modal is open
+            if (snakeGameContent.classList.contains('hidden')) return;
+            
+            if (!snakeGameRunning && e.code === 'Space') {
+                e.preventDefault();
+                startSnakeGame();
+                return;
+            }
+            
+            if (!snakeGameRunning) return;
+            
+            e.preventDefault(); // Prevent page scrolling
+            
+            switch(e.key) {
+                case 'ArrowUp':
+                case 'w':
+                case 'W':
+                    if (dy !== 1) { dx = 0; dy = -1; }
+                    break;
+                case 'ArrowDown':
+                case 's':
+                case 'S':
+                    if (dy !== -1) { dx = 0; dy = 1; }
+                    break;
+                case 'ArrowLeft':
+                case 'a':
+                case 'A':
+                    if (dx !== 1) { dx = -1; dy = 0; }
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                case 'D':
+                    if (dx !== -1) { dx = 1; dy = 0; }
+                    break;
+            }
+        });
+
+        snakeStartBtn.addEventListener('click', () => {
+            if (snakeGameRunning) {
+                pauseSnakeGame();
+            } else {
+                startSnakeGame();
+            }
+        });
+
+        snakeResetBtn.addEventListener('click', resetSnakeGame);
+
+        // Modal and Game Management
+        const gameModal = document.getElementById('game-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModal = document.getElementById('close-modal');
+        const gameCards = document.querySelectorAll('.game-card');
+        const snakeGameContent = document.getElementById('snake-game-content');
+        const tictactoeGameContent = document.getElementById('tictactoe-game-content');
+        const snakePreview = document.querySelector('.snake-preview');
+        const previewCtx = snakePreview.getContext('2d');
+
+        function drawSnakePreview() {
+            previewCtx.fillStyle = '#0f172a';
+            previewCtx.fillRect(0, 0, 150, 150);
+            
+            // Draw mini snake
+            previewCtx.fillStyle = '#10b981';
+            previewCtx.fillRect(60, 60, 12, 12);
+            previewCtx.fillRect(48, 60, 12, 12);
+            previewCtx.fillRect(36, 60, 12, 12);
+            
+            // Draw mini food
+            previewCtx.fillStyle = '#f59e0b';
+            previewCtx.fillRect(84, 60, 12, 12);
+            previewCtx.fillStyle = '#0f172a';
+            previewCtx.font = '10px monospace';
+            previewCtx.textAlign = 'center';
+            previewCtx.fillText('{', 90, 69);
+        }
+
+        function openGameModal(gameType) {
+            gameModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            if (gameType === 'snake') {
+                modalTitle.textContent = 'Code Snake';
+                snakeGameContent.classList.remove('hidden');
+                tictactoeGameContent.classList.add('hidden');
+                // Reset and redraw snake game when opening
+                resetSnakeGame();
+            } else if (gameType === 'tictactoe') {
+                modalTitle.textContent = 'Tic-Tac-Toe';
+                tictactoeGameContent.classList.remove('hidden');
+                snakeGameContent.classList.add('hidden');
+            }
+        }
+
+        function closeGameModal() {
+            gameModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            snakeGameContent.classList.add('hidden');
+            tictactoeGameContent.classList.add('hidden');
+            
+            // Stop snake game if running
+            if (snakeGameRunning) {
+                snakeGameRunning = false;
+                clearInterval(snakeGameLoop);
+            }
+        }
+
+        // Event listeners for game cards
+        gameCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const gameType = card.getAttribute('data-game');
+                openGameModal(gameType);
+            });
+        });
+
+        closeModal.addEventListener('click', closeGameModal);
         
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !gameModal.classList.contains('hidden')) {
+                closeGameModal();
+            }
+        });
+        
+        // Close modal when clicking outside
+        gameModal.addEventListener('click', (e) => {
+            if (e.target === gameModal) {
+                closeGameModal();
+            }
+        });
+
+        // Initialize Snake Game
+        generateFood();
+        drawSnakeGame();
+        drawSnakePreview();
+
         // Initialize theme
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             document.body.classList.add('light-theme');
             document.body.classList.remove('dark-theme');
-            
-            const slider = document.getElementById('theme-slider');
-            const mobileSlider = document.getElementById('mobile-theme-slider');
-            const icon = document.getElementById('theme-icon');
-            const mobileIcon = document.getElementById('mobile-theme-icon');
-            
-            if (slider) slider.style.transform = 'translateX(32px)';
-            if (mobileSlider) mobileSlider.style.transform = 'translateX(32px)';
-            if (icon) icon.className = 'fas fa-moon text-gray-800 text-sm';
-            if (mobileIcon) mobileIcon.className = 'fas fa-moon text-gray-800 text-sm';
         } else {
             document.body.classList.add('dark-theme');
             document.body.classList.remove('light-theme');
         }
-        
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
     </script>
     
     <style>
@@ -449,10 +744,7 @@
             color: #0f172a !important;
         }
         
-        .light-theme nav {
-            background-color: rgba(241, 245, 249, 0.9) !important;
-            border-bottom-color: #cbd5e1 !important;
-        }
+
         
         .light-theme .bg-dark-light {
             background-color: #e2e8f0 !important;
@@ -483,9 +775,29 @@
             background-color: #cbd5e1 !important;
         }
         
-        .light-theme nav img {
-            filter: brightness(0) !important;
+        .light-theme #snake-canvas {
+            background-color: #f1f5f9 !important;
+            border-color: #cbd5e1 !important;
         }
+        
+        .light-theme .snake-preview {
+            background-color: #f1f5f9 !important;
+            border-color: #cbd5e1 !important;
+        }
+        
+        .game-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+        
+        #game-modal {
+            backdrop-filter: blur(5px);
+        }
+        
+
     </style>
     
     <!-- Footer -->
