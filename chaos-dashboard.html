@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibes Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white min-h-screen">
+    <!-- Mobile Header -->
+    <div class="lg:hidden fixed top-0 left-0 right-0 bg-dark-light border-b border-gray-700 z-50 p-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="projects.html" class="text-primary hover:text-white">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h1 class="text-lg font-bold text-primary">VIBES ADMIN</h1>
+            </div>
+            <button id="mobileMenuBtn" class="text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-dark-light border-r border-gray-700 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <div class="p-6 pt-16 lg:pt-6">
+            <div class="flex items-center justify-between mb-8">
+                <h1 class="text-xl font-bold text-primary hidden lg:block">VIBES ADMIN</h1>
+                <a href="projects.html" class="hidden lg:flex items-center text-gray-400 hover:text-primary transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span class="text-sm">Back to Projects</span>
+                </a>
+            </div>
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('dashboard')">
+                    <i class="fas fa-tachometer-alt mr-3"></i> Dashboard
+                </a>
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('users')">
+                    <i class="fas fa-users mr-3"></i> Users (<span id="userCount">0</span>)
+                </a>
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('analytics')">
+                    <i class="fas fa-chart-bar mr-3"></i> Analytics
+                </a>
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('vibes')">
+                    <i class="fas fa-music mr-3"></i> Pure Vibes
+                </a>
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('tools')">
+                    <i class="fas fa-tools mr-3"></i> Cool Tools
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden" onclick="closeMobileMenu()"></div>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64 pt-16 lg:pt-0 p-4 lg:p-8">
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="section">
+            <h2 class="text-3xl font-bold mb-8">Dashboard Overview</h2>
+            
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-8">
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400">Total Users</p>
+                            <p class="text-2xl font-bold" id="totalUsers">1,337</p>
+                        </div>
+                        <i class="fas fa-users text-3xl text-blue-500"></i>
+                    </div>
+                </div>
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400">Revenue</p>
+                            <p class="text-2xl font-bold" id="revenue">$42,069</p>
+                        </div>
+                        <i class="fas fa-dollar-sign text-3xl text-green-500"></i>
+                    </div>
+                </div>
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400">Orders</p>
+                            <p class="text-2xl font-bold" id="orders">999</p>
+                        </div>
+                        <i class="fas fa-shopping-cart text-3xl text-purple-500"></i>
+                    </div>
+                </div>
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400">Vibe Level</p>
+                            <p class="text-2xl font-bold text-purple-500" id="vibeLevel">IMMACULATE</p>
+                        </div>
+                        <i class="fas fa-music text-3xl text-purple-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Random Chart</h3>
+                    <canvas id="randomChart" width="400" height="200"></canvas>
+                </div>
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Activity Feed</h3>
+                    <div id="activityFeed" class="space-y-3 max-h-48 overflow-y-auto"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Section -->
+        <div id="users" class="section hidden">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">User Management</h2>
+                <button onclick="addRandomUser()" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded">
+                    Add Random User
+                </button>
+            </div>
+            
+            <div class="bg-dark-light rounded-lg overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-gray-700">
+                        <tr>
+                            <th class="p-4 text-left">ID</th>
+                            <th class="p-4 text-left">Name</th>
+                            <th class="p-4 text-left">Email</th>
+                            <th class="p-4 text-left">Status</th>
+                            <th class="p-4 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTable">
+                        <!-- Users will be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div id="analytics" class="section hidden">
+            <h2 class="text-3xl font-bold mb-8">Analytics Dashboard</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Fake Metrics</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span>Bounce Rate</span>
+                            <span class="text-red-500" id="bounceRate">42%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Conversion</span>
+                            <span class="text-green-500" id="conversion">13.37%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Page Views</span>
+                            <span class="text-blue-500" id="pageViews">69,420</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Random Progress Bars</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>CPU Usage</span>
+                                <span id="cpuUsage">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div id="cpuBar" class="bg-red-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Memory</span>
+                                <span id="memoryUsage">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div id="memoryBar" class="bg-yellow-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Vibes</span>
+                                <span id="vibesUsage">100%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div id="vibesBar" class="bg-purple-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Live Data</h3>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary mb-2" id="liveCounter">0</div>
+                        <p class="text-gray-400">Random Counter</p>
+                        <button onclick="resetCounter()" class="mt-4 bg-red-500 hover:bg-red-600 px-4 py-2 rounded">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pure Vibes Section -->
+        <div id="vibes" class="section hidden">
+            <h2 class="text-3xl font-bold mb-8 text-purple-500">PURE VIBES MODE</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Vibe Controls</h3>
+                    <div class="space-y-3">
+                        <button onclick="vibeMode()" class="w-full bg-purple-500 hover:bg-purple-600 p-3 rounded">
+                            ACTIVATE VIBES
+                        </button>
+                        <button onclick="randomColors()" class="w-full bg-pink-500 hover:bg-pink-600 p-3 rounded">
+                            Color Party
+                        </button>
+                        <button onclick="pulseScreen()" class="w-full bg-blue-500 hover:bg-blue-600 p-3 rounded">
+                            Pulse Effect
+                        </button>
+                        <button onclick="rainbowMode()" class="w-full bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 p-3 rounded">
+                            Rainbow Mode
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Random Generator</h3>
+                    <div class="space-y-3">
+                        <button onclick="generateRandomData()" class="w-full bg-blue-500 hover:bg-blue-600 p-3 rounded">
+                            Generate Random Data
+                        </button>
+                        <div id="randomOutput" class="bg-gray-700 p-3 rounded min-h-[100px] text-sm"></div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Vibe Status</h3>
+                    <div class="text-center">
+                        <div class="text-6xl mb-4" id="vibeEmoji">🎵</div>
+                        <p class="text-purple-500 font-bold" id="vibeStatus">VIBES READY</p>
+                        <div class="mt-4">
+                            <button onclick="changeVibe()" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded text-sm">
+                                Change Vibe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cool Tools Section -->
+        <div id="tools" class="section hidden">
+            <h2 class="text-3xl font-bold mb-8 text-blue-500">COOL TOOLS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Password Generator</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <label class="text-sm">Length:</label>
+                            <input type="range" id="passwordLength" min="8" max="32" value="16" class="flex-1">
+                            <span id="lengthValue" class="text-sm">16</span>
+                        </div>
+                        <button onclick="generatePassword()" class="w-full bg-green-500 hover:bg-green-600 p-3 rounded">
+                            Generate Password
+                        </button>
+                        <div id="passwordOutput" class="bg-gray-700 p-3 rounded text-sm font-mono break-all">Click generate!</div>
+                        <button onclick="copyPassword()" class="w-full bg-blue-500 hover:bg-blue-600 p-2 rounded text-sm">
+                            Copy Password
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Color Palette</h3>
+                    <div class="space-y-3">
+                        <button onclick="generatePalette()" class="w-full bg-pink-500 hover:bg-pink-600 p-3 rounded">
+                            Generate Palette
+                        </button>
+                        <div id="colorPalette" class="grid grid-cols-5 gap-2 h-20"></div>
+                        <div id="colorCodes" class="text-xs space-y-1"></div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Random Quote</h3>
+                    <div class="space-y-3">
+                        <button onclick="getRandomQuote()" class="w-full bg-orange-500 hover:bg-orange-600 p-3 rounded">
+                            Get Quote
+                        </button>
+                        <div id="quoteOutput" class="bg-gray-700 p-3 rounded text-sm min-h-[100px] flex items-center justify-center">
+                            Click to get inspired!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Dice Roller</h3>
+                    <div class="space-y-3">
+                        <div class="flex space-x-2">
+                            <select id="diceType" class="bg-gray-700 p-2 rounded flex-1">
+                                <option value="6">D6</option>
+                                <option value="10">D10</option>
+                                <option value="20">D20</option>
+                                <option value="100">D100</option>
+                            </select>
+                            <input type="number" id="diceCount" value="1" min="1" max="10" class="bg-gray-700 p-2 rounded w-16">
+                        </div>
+                        <button onclick="rollDice()" class="w-full bg-red-500 hover:bg-red-600 p-3 rounded">
+                            Roll Dice
+                        </button>
+                        <div id="diceResult" class="bg-gray-700 p-3 rounded text-center text-2xl font-bold">🎲</div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Unit Converter</h3>
+                    <div class="space-y-3">
+                        <input type="number" id="convertInput" placeholder="Enter value" class="w-full bg-gray-700 p-2 rounded">
+                        <select id="conversionType" class="w-full bg-gray-700 p-2 rounded">
+                            <option value="ftToM">Feet to Meters</option>
+                            <option value="mToFt">Meters to Feet</option>
+                            <option value="cToF">Celsius to Fahrenheit</option>
+                            <option value="fToC">Fahrenheit to Celsius</option>
+                        </select>
+                        <button onclick="convertUnit()" class="w-full bg-teal-500 hover:bg-teal-600 p-3 rounded">
+                            Convert
+                        </button>
+                        <div id="conversionResult" class="bg-gray-700 p-3 rounded text-center">Result will appear here</div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Magic 8-Ball</h3>
+                    <div class="space-y-3">
+                        <input type="text" id="questionInput" placeholder="Ask a question..." class="w-full bg-gray-700 p-2 rounded">
+                        <button onclick="askMagic8Ball()" class="w-full bg-purple-500 hover:bg-purple-600 p-3 rounded">
+                            Ask the Magic 8-Ball
+                        </button>
+                        <div id="magic8BallResult" class="bg-gray-700 p-3 rounded text-center min-h-[60px] flex items-center justify-center">
+                            🎱 Ask me anything!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let users = [];
+        let chaosActive = false;
+        let counter = 0;
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+        
+        function closeMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        }
+        
+        // Show section function
+        function showSection(sectionName) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionName).classList.remove('hidden');
+            
+            // Close mobile menu on section change
+            if (window.innerWidth < 1024) {
+                closeMobileMenu();
+            }
+        }
+
+        // Random user generator
+        const names = ['John Doe', 'Jane Smith', 'Bob Johnson', 'Alice Brown', 'Charlie Wilson', 'Diana Prince', 'Eve Adams', 'Frank Miller'];
+        const statuses = ['Active', 'Inactive', 'Pending', 'Banned'];
+
+        function addRandomUser() {
+            const user = {
+                id: Math.floor(Math.random() * 10000),
+                name: names[Math.floor(Math.random() * names.length)],
+                email: `user${Math.floor(Math.random() * 1000)}@example.com`,
+                status: statuses[Math.floor(Math.random() * statuses.length)]
+            };
+            
+            users.push(user);
+            updateUserTable();
+            document.getElementById('userCount').textContent = users.length;
+        }
+
+        function updateUserTable() {
+            const tbody = document.getElementById('userTable');
+            tbody.innerHTML = '';
+            
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-gray-700';
+                row.innerHTML = `
+                    <td class="p-4">${user.id}</td>
+                    <td class="p-4">${user.name}</td>
+                    <td class="p-4">${user.email}</td>
+                    <td class="p-4">
+                        <span class="px-2 py-1 rounded text-xs ${getStatusColor(user.status)}">
+                            ${user.status}
+                        </span>
+                    </td>
+                    <td class="p-4">
+                        <button onclick="deleteUser(${user.id})" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function getStatusColor(status) {
+            switch(status) {
+                case 'Active': return 'bg-green-500';
+                case 'Inactive': return 'bg-gray-500';
+                case 'Pending': return 'bg-yellow-500';
+                case 'Banned': return 'bg-red-500';
+                default: return 'bg-gray-500';
+            }
+        }
+
+        function deleteUser(id) {
+            users = users.filter(user => user.id !== id);
+            updateUserTable();
+            document.getElementById('userCount').textContent = users.length;
+        }
+
+        // Random chart
+        function drawRandomChart() {
+            const canvas = document.getElementById('randomChart');
+            const ctx = canvas.getContext('2d');
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 2;
+            
+            ctx.beginPath();
+            for (let i = 0; i < canvas.width; i += 10) {
+                const y = Math.random() * canvas.height;
+                if (i === 0) {
+                    ctx.moveTo(i, y);
+                } else {
+                    ctx.lineTo(i, y);
+                }
+            }
+            ctx.stroke();
+        }
+
+        // Activity feed
+        const activities = [
+            'User logged in',
+            'New order received',
+            'Payment processed',
+            'System backup completed',
+            'Error detected and fixed',
+            'New user registered',
+            'Data synchronized',
+            'Cache cleared'
+        ];
+
+        function addActivity() {
+            const feed = document.getElementById('activityFeed');
+            const activity = document.createElement('div');
+            activity.className = 'flex items-center p-2 bg-gray-700 rounded';
+            activity.innerHTML = `
+                <i class="fas fa-circle text-xs text-green-500 mr-3"></i>
+                <span class="text-sm">${activities[Math.floor(Math.random() * activities.length)]}</span>
+                <span class="ml-auto text-xs text-gray-400">${new Date().toLocaleTimeString()}</span>
+            `;
+            
+            feed.insertBefore(activity, feed.firstChild);
+            
+            if (feed.children.length > 10) {
+                feed.removeChild(feed.lastChild);
+            }
+        }
+
+        // Vibe functions
+        let vibeActive = false;
+        const vibeEmojis = ['🎵', '🎶', '🎤', '🎧', '🎸', '🎹', '🥁', '🎺', '🎷', '🪕'];
+        const vibeStatuses = ['VIBES READY', 'FEELING IT', 'IN THE ZONE', 'PURE ENERGY', 'COSMIC VIBES'];
+        
+        function vibeMode() {
+            vibeActive = !vibeActive;
+            document.getElementById('vibeStatus').textContent = vibeActive ? 'VIBES ACTIVE!' : 'VIBES READY';
+            document.getElementById('vibeEmoji').textContent = vibeActive ? '🌟' : '🎵';
+            
+            if (vibeActive) {
+                setInterval(() => {
+                    if (vibeActive) {
+                        randomizeStats();
+                        pulseColors();
+                    }
+                }, 1500);
+            }
+        }
+        
+        function changeVibe() {
+            const randomEmoji = vibeEmojis[Math.floor(Math.random() * vibeEmojis.length)];
+            const randomStatus = vibeStatuses[Math.floor(Math.random() * vibeStatuses.length)];
+            document.getElementById('vibeEmoji').textContent = randomEmoji;
+            document.getElementById('vibeStatus').textContent = randomStatus;
+        }
+        
+        function pulseColors() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'];
+            document.documentElement.style.setProperty('--tw-primary', colors[Math.floor(Math.random() * colors.length)]);
+        }
+
+        function randomColors() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+            document.documentElement.style.setProperty('--tw-primary', colors[Math.floor(Math.random() * colors.length)]);
+        }
+
+        function pulseScreen() {
+            document.body.style.animation = 'pulse 1s ease-in-out';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 1000);
+        }
+        
+        function rainbowMode() {
+            let hue = 0;
+            const interval = setInterval(() => {
+                document.documentElement.style.setProperty('--tw-primary', `hsl(${hue}, 70%, 50%)`);
+                hue = (hue + 10) % 360;
+            }, 100);
+            
+            setTimeout(() => {
+                clearInterval(interval);
+                document.documentElement.style.setProperty('--tw-primary', '#10b981');
+            }, 3000);
+        }
+
+        function generateRandomData() {
+            const output = document.getElementById('randomOutput');
+            const data = {
+                timestamp: new Date().toISOString(),
+                randomNumber: Math.floor(Math.random() * 1000000),
+                uuid: Math.random().toString(36).substr(2, 9),
+                status: Math.random() > 0.5 ? 'SUCCESS' : 'ERROR',
+                data: Array.from({length: 5}, () => Math.random().toFixed(4))
+            };
+            output.textContent = JSON.stringify(data, null, 2);
+        }
+
+        function randomizeStats() {
+            document.getElementById('totalUsers').textContent = Math.floor(Math.random() * 10000);
+            document.getElementById('revenue').textContent = '$' + Math.floor(Math.random() * 100000).toLocaleString();
+            document.getElementById('orders').textContent = Math.floor(Math.random() * 1000);
+            
+            const cpu = Math.floor(Math.random() * 100);
+            const memory = Math.floor(Math.random() * 100);
+            
+            document.getElementById('cpuUsage').textContent = cpu + '%';
+            document.getElementById('cpuBar').style.width = cpu + '%';
+            document.getElementById('memoryUsage').textContent = memory + '%';
+            document.getElementById('memoryBar').style.width = memory + '%';
+            
+            document.getElementById('bounceRate').textContent = Math.floor(Math.random() * 100) + '%';
+            document.getElementById('conversion').textContent = (Math.random() * 20).toFixed(2) + '%';
+            document.getElementById('pageViews').textContent = Math.floor(Math.random() * 100000).toLocaleString();
+        }
+
+        function resetCounter() {
+            counter = 0;
+            document.getElementById('liveCounter').textContent = counter;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu event listener
+            document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+            
+            // Add some initial users
+            for (let i = 0; i < 5; i++) {
+                addRandomUser();
+            }
+            
+            // Start intervals
+            setInterval(drawRandomChart, 2000);
+            setInterval(addActivity, 3000);
+            setInterval(() => {
+                counter++;
+                document.getElementById('liveCounter').textContent = counter;
+            }, 1000);
+            
+            setInterval(randomizeStats, 5000);
+            
+            // Tool functions
+            document.getElementById('passwordLength').addEventListener('input', function() {
+                document.getElementById('lengthValue').textContent = this.value;
+            });
+            
+            // Initial draw
+            drawRandomChart();
+            randomizeStats();
+            
+            // Handle window resize for mobile menu
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) {
+                    closeMobileMenu();
+                }
+            });
+        });
+        
+        // Tool Functions
+        function generatePassword() {
+            const length = document.getElementById('passwordLength').value;
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('passwordOutput').textContent = password;
+        }
+        
+        function copyPassword() {
+            const password = document.getElementById('passwordOutput').textContent;
+            navigator.clipboard.writeText(password).then(() => {
+                alert('Password copied to clipboard!');
+            });
+        }
+        
+        function generatePalette() {
+            const palette = document.getElementById('colorPalette');
+            const codes = document.getElementById('colorCodes');
+            palette.innerHTML = '';
+            codes.innerHTML = '';
+            
+            const colors = [];
+            for (let i = 0; i < 5; i++) {
+                const color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                colors.push(color);
+                
+                const colorDiv = document.createElement('div');
+                colorDiv.style.backgroundColor = color;
+                colorDiv.className = 'rounded cursor-pointer';
+                colorDiv.onclick = () => navigator.clipboard.writeText(color);
+                palette.appendChild(colorDiv);
+                
+                const codeDiv = document.createElement('div');
+                codeDiv.textContent = color;
+                codeDiv.className = 'cursor-pointer hover:text-primary';
+                codeDiv.onclick = () => navigator.clipboard.writeText(color);
+                codes.appendChild(codeDiv);
+            }
+        }
+        
+        const quotes = [
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "Innovation distinguishes between a leader and a follower. - Steve Jobs",
+            "Code is like humor. When you have to explain it, it's bad. - Cory House",
+            "First, solve the problem. Then, write the code. - John Johnson",
+            "Experience is the name everyone gives to their mistakes. - Oscar Wilde",
+            "The best error message is the one that never shows up. - Thomas Fuchs",
+            "Simplicity is the ultimate sophistication. - Leonardo da Vinci",
+            "Make it work, make it right, make it fast. - Kent Beck"
+        ];
+        
+        function getRandomQuote() {
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quoteOutput').textContent = quote;
+        }
+        
+        function rollDice() {
+            const sides = parseInt(document.getElementById('diceType').value);
+            const count = parseInt(document.getElementById('diceCount').value);
+            const results = [];
+            
+            for (let i = 0; i < count; i++) {
+                results.push(Math.floor(Math.random() * sides) + 1);
+            }
+            
+            const total = results.reduce((a, b) => a + b, 0);
+            document.getElementById('diceResult').innerHTML = `
+                <div>${results.join(', ')}</div>
+                <div class="text-sm text-gray-400">Total: ${total}</div>
+            `;
+        }
+        
+        function convertUnit() {
+            const input = parseFloat(document.getElementById('convertInput').value);
+            const type = document.getElementById('conversionType').value;
+            let result = '';
+            
+            if (isNaN(input)) {
+                result = 'Please enter a valid number';
+            } else {
+                switch(type) {
+                    case 'ftToM':
+                        result = `${(input * 0.3048).toFixed(2)} meters`;
+                        break;
+                    case 'mToFt':
+                        result = `${(input * 3.28084).toFixed(2)} feet`;
+                        break;
+                    case 'cToF':
+                        result = `${(input * 9/5 + 32).toFixed(2)}°F`;
+                        break;
+                    case 'fToC':
+                        result = `${((input - 32) * 5/9).toFixed(2)}°C`;
+                        break;
+                }
+            }
+            
+            document.getElementById('conversionResult').textContent = result;
+        }
+        
+        const magic8Answers = [
+            "It is certain", "Reply hazy, try again", "Don't count on it",
+            "It is decidedly so", "Ask again later", "My reply is no",
+            "Without a doubt", "Better not tell you now", "My sources say no",
+            "Yes definitely", "Cannot predict now", "Outlook not so good",
+            "You may rely on it", "Concentrate and ask again", "Very doubtful",
+            "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes"
+        ];
+        
+        function askMagic8Ball() {
+            const question = document.getElementById('questionInput').value;
+            if (!question.trim()) {
+                document.getElementById('magic8BallResult').textContent = 'Please ask a question first!';
+                return;
+            }
+            
+            const answer = magic8Answers[Math.floor(Math.random() * magic8Answers.length)];
+            document.getElementById('magic8BallResult').innerHTML = `
+                <div class="text-sm text-gray-400 mb-2">"${question}"</div>
+                <div class="font-bold">${answer}</div>
+            `;
+        }
+    </script>
+
+    <style>
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</body>
+</html>
