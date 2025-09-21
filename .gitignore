@@ -1,1 +1,10 @@
-INTERACTIVE_FEATURES.md
+# Sensitive files
+.env
+config.js
+secrets/
+private/
+
+# Development files
+node_modules/
+.DS_Store
+*.log

@@ -25,12 +25,12 @@
     <div class="lg:hidden fixed top-0 left-0 right-0 bg-dark-light border-b border-gray-700 z-50 p-4">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <a href="projects.html" class="text-primary hover:text-white">
+                <a href="projects.html" class="text-primary hover:text-white hover:scale-110 transition-all duration-300">
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <h1 class="text-lg font-bold text-primary">VIBES ADMIN</h1>
             </div>
-            <button id="mobileMenuBtn" class="text-white">
+            <button id="mobileMenuBtn" class="text-white hover:text-primary hover:scale-110 transition-all duration-300">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
@@ -41,25 +41,25 @@
         <div class="p-6 pt-16 lg:pt-6">
             <div class="flex items-center justify-between mb-8">
                 <h1 class="text-xl font-bold text-primary hidden lg:block">VIBES ADMIN</h1>
-                <a href="projects.html" class="hidden lg:flex items-center text-gray-400 hover:text-primary transition-colors">
+                <a href="projects.html" class="hidden lg:flex items-center text-gray-400 hover:text-primary hover:scale-105 transition-all duration-300">
                     <i class="fas fa-arrow-left mr-2"></i>
                     <span class="text-sm">Back to Projects</span>
                 </a>
             </div>
             <nav class="space-y-2">
-                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('dashboard')">
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300" onclick="showSection('dashboard')">
                     <i class="fas fa-tachometer-alt mr-3"></i> Dashboard
                 </a>
-                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('users')">
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300" onclick="showSection('users')">
                     <i class="fas fa-users mr-3"></i> Users (<span id="userCount">0</span>)
                 </a>
-                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('analytics')">
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300" onclick="showSection('analytics')">
                     <i class="fas fa-chart-bar mr-3"></i> Analytics
                 </a>
-                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('vibes')">
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300" onclick="showSection('vibes')">
                     <i class="fas fa-music mr-3"></i> Pure Vibes
                 </a>
-                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 transition-colors" onclick="showSection('tools')">
+                <a href="#" class="flex items-center p-3 rounded hover:bg-gray-700 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300" onclick="showSection('tools')">
                     <i class="fas fa-tools mr-3"></i> Cool Tools
                 </a>
             </nav>
@@ -77,40 +77,40 @@
             
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-8">
-                <div class="bg-dark-light p-6 rounded-lg">
+                <div class="bg-dark-light p-6 rounded-lg hover:bg-primary/5 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-gray-400">Total Users</p>
                             <p class="text-2xl font-bold" id="totalUsers">1,337</p>
                         </div>
-                        <i class="fas fa-users text-3xl text-blue-500"></i>
+                        <i class="fas fa-users text-3xl text-blue-500 hover:scale-110 transition-transform duration-300"></i>
                     </div>
                 </div>
-                <div class="bg-dark-light p-6 rounded-lg">
+                <div class="bg-dark-light p-6 rounded-lg hover:bg-primary/5 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-gray-400">Revenue</p>
                             <p class="text-2xl font-bold" id="revenue">$42,069</p>
                         </div>
-                        <i class="fas fa-dollar-sign text-3xl text-green-500"></i>
+                        <i class="fas fa-dollar-sign text-3xl text-green-500 hover:scale-110 transition-transform duration-300"></i>
                     </div>
                 </div>
-                <div class="bg-dark-light p-6 rounded-lg">
+                <div class="bg-dark-light p-6 rounded-lg hover:bg-primary/5 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-gray-400">Orders</p>
                             <p class="text-2xl font-bold" id="orders">999</p>
                         </div>
-                        <i class="fas fa-shopping-cart text-3xl text-purple-500"></i>
+                        <i class="fas fa-shopping-cart text-3xl text-purple-500 hover:scale-110 transition-transform duration-300"></i>
                     </div>
                 </div>
-                <div class="bg-dark-light p-6 rounded-lg">
+                <div class="bg-dark-light p-6 rounded-lg hover:bg-primary/5 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-gray-400">Vibe Level</p>
                             <p class="text-2xl font-bold text-purple-500" id="vibeLevel">IMMACULATE</p>
                         </div>
-                        <i class="fas fa-music text-3xl text-purple-500"></i>
+                        <i class="fas fa-music text-3xl text-purple-500 hover:scale-110 transition-transform duration-300"></i>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
         <div id="users" class="section hidden">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-3xl font-bold">User Management</h2>
-                <button onclick="addRandomUser()" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded">
+                <button onclick="addRandomUser()" class="bg-primary hover:bg-primary/80 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 px-4 py-2 rounded transition-all duration-300">
                     Add Random User
                 </button>
             </div>
@@ -232,16 +232,16 @@
                 <div class="bg-dark-light p-6 rounded-lg">
                     <h3 class="text-xl font-bold mb-4">Vibe Controls</h3>
                     <div class="space-y-3">
-                        <button onclick="vibeMode()" class="w-full bg-purple-500 hover:bg-purple-600 p-3 rounded">
+                        <button onclick="vibeMode()" class="w-full bg-purple-500 hover:bg-purple-600 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 p-3 rounded transition-all duration-300">
                             ACTIVATE VIBES
                         </button>
-                        <button onclick="randomColors()" class="w-full bg-pink-500 hover:bg-pink-600 p-3 rounded">
+                        <button onclick="randomColors()" class="w-full bg-pink-500 hover:bg-pink-600 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25 p-3 rounded transition-all duration-300">
                             Color Party
                         </button>
-                        <button onclick="pulseScreen()" class="w-full bg-blue-500 hover:bg-blue-600 p-3 rounded">
+                        <button onclick="pulseScreen()" class="w-full bg-blue-500 hover:bg-blue-600 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 p-3 rounded transition-all duration-300">
                             Pulse Effect
                         </button>
-                        <button onclick="rainbowMode()" class="w-full bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 p-3 rounded">
+                        <button onclick="rainbowMode()" class="w-full bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 hover:scale-105 hover:shadow-lg p-3 rounded transition-all duration-300">
                             Rainbow Mode
                         </button>
                     </div>

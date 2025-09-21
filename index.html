@@ -3,10 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trust Benard - Portfolio</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Trust Benard - Professional Web Developer & Automation Specialist | Portfolio</title>
+    <meta name="title" content="Trust Benard - Professional Web Developer & Automation Specialist | Portfolio">
+    <meta name="description" content="Trust Benard is a skilled web developer and automation specialist from Abuja, Nigeria. Specializing in modern websites, custom solutions, WordPress development, and process automation. 50+ projects completed with 100% client satisfaction.">
+    <meta name="keywords" content="Trust Benard, web developer, automation specialist, UI/UX designer, WordPress developer, JavaScript developer, frontend developer, web development Nigeria, Abuja web developer, freelance developer, custom websites, responsive design, GSAP animations, 3D CSS, portfolio">
+    <meta name="author" content="Trust Benard">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trust-benard.netlify.app/">
+    <meta property="og:title" content="Trust Benard - Professional Web Developer & Automation Specialist">
+    <meta property="og:description" content="Skilled web developer from Abuja, Nigeria specializing in modern websites, automation, and custom solutions. 50+ projects completed with 100% client satisfaction.">
+    <meta property="og:image" content="https://trust-benard.netlify.app/assets/img/trust-benard-portfolio.jpg">
+    <meta property="og:site_name" content="Trust Benard Portfolio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://trust-benard.netlify.app/">
+    <meta property="twitter:title" content="Trust Benard - Professional Web Developer & Automation Specialist">
+    <meta property="twitter:description" content="Skilled web developer from Abuja, Nigeria specializing in modern websites, automation, and custom solutions. 50+ projects completed.">
+    <meta property="twitter:image" content="https://trust-benard.netlify.app/assets/img/trust-benard-portfolio.jpg">
+    <meta property="twitter:creator" content="@BenardTrust">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#10b981">
+    <meta name="msapplication-TileColor" content="#10b981">
+    <meta name="application-name" content="Trust Benard Portfolio">
+    <meta name="apple-mobile-web-app-title" content="Trust Benard">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://trust-benard.netlify.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Trust Benard",
+      "jobTitle": "Web Developer & Automation Specialist",
+      "description": "Professional web developer and automation specialist specializing in modern websites, custom solutions, and process automation.",
+      "url": "https://trust-benard.netlify.app/",
+      "image": "https://trust-benard.netlify.app/assets/img/trust-benard-portfolio.jpg",
+      "sameAs": [
+        "https://github.com/trust-benard",
+        "https://www.linkedin.com/in/trust-benard-9487a7376",
+        "https://twitter.com/BenardTrust"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abuja",
+        "addressCountry": "Nigeria"
+      },
+      "email": "trustbenard01@gmail.com",
+      "telephone": "+234 915 649 4903",
+      "knowsAbout": [
+        "Web Development",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "WordPress",
+        "Node.js",
+        "Automation",
+        "UI/UX Design",
+        "Responsive Design",
+        "GSAP Animations",
+        "3D CSS"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Web Developer",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Abuja, Nigeria"
+        },
+        "skills": "Web Development, Automation, UI/UX Design, WordPress, JavaScript, Node.js"
+      }
+    }
+    </script>
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" as="script">
     <script>
         tailwind.config = {
             theme: {
@@ -20,24 +120,33 @@
             }
         }
     </script>
+    
+    
+    <!-- Google Analytics (replace with your tracking ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('config', 'GA_TRACKING_ID');
+    </script> -->
 </head>
 <body class="bg-dark text-white overflow-x-hidden">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="flex items-center">
+                <a href="index.html" class="flex items-center hover:scale-110 transition-transform duration-300">
                     <img src="assets/logo.svg" alt="Trust Benard" class="h-8 w-auto">
                 </a>
                 
 
                 
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-primary">Home</a>
-                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
-                    <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
-                    <a href="resume.html" class="hover:text-primary transition-colors">Resume</a>
-                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <a href="index.html" class="text-primary hover:scale-110 transition-all duration-300">Home</a>
+                    <a href="about.html" class="hover:text-primary hover:scale-110 transition-all duration-300">About</a>
+                    <a href="projects.html" class="hover:text-primary hover:scale-110 transition-all duration-300">Projects</a>
+                    <a href="resume.html" class="hover:text-primary hover:scale-110 transition-all duration-300">Resume</a>
+                    <a href="contact.html" class="hover:text-primary hover:scale-110 transition-all duration-300">Contact</a>
                     <button id="theme-toggle" class="ml-4 relative w-16 h-8 bg-gray-700 rounded-full p-1 transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary">
                         <div class="absolute inset-0 flex items-center justify-between px-2 text-xs">
                             <i class="fas fa-sun text-yellow-400"></i>
@@ -58,18 +167,18 @@
                             <i class="fas fa-sun text-yellow-500 text-sm" id="mobile-theme-icon"></i>
                         </div>
                     </button>
-                    <button class="text-white" id="mobile-menu-btn">
+                    <button class="text-white hover:text-primary hover:scale-110 transition-all duration-300" id="mobile-menu-btn">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
-                    <a href="index.html" class="text-primary py-2">Home</a>
-                    <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
-                    <a href="projects.html" class="hover:text-primary transition-colors py-2">Projects</a>
-                    <a href="resume.html" class="hover:text-primary transition-colors py-2">Resume</a>
-                    <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
+                    <a href="index.html" class="text-primary py-2 hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300">Home</a>
+                    <a href="about.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">About</a>
+                    <a href="projects.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">Projects</a>
+                    <a href="resume.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">Resume</a>
+                    <a href="contact.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">Contact</a>
 
                 </div>
             </div>
@@ -94,24 +203,24 @@
                     Specializing in web development, process automation, and exceptional user experiences.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 px-4">
-                    <a href="projects.html" class="bg-primary hover:bg-primary/80 px-6 sm:px-8 py-3 rounded-full transition-all transform hover:scale-105 text-sm sm:text-base">
+                    <a href="projects.html" class="bg-primary hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/25 px-6 sm:px-8 py-3 rounded-full transition-all transform hover:scale-105 hover:-translate-y-1 text-sm sm:text-base">
                         View My Work
                     </a>
-                    <a href="about.html" class="border border-primary hover:bg-primary/20 px-6 sm:px-8 py-3 rounded-full transition-all text-sm sm:text-base">
+                    <a href="about.html" class="border border-primary hover:bg-primary/20 hover:shadow-lg hover:shadow-primary/25 px-6 sm:px-8 py-3 rounded-full transition-all transform hover:scale-105 hover:-translate-y-1 text-sm sm:text-base">
                         Learn More
                     </a>
-                    <a href="contact.html" class="border border-gray-600 hover:border-primary hover:text-primary px-6 sm:px-8 py-3 rounded-full transition-all text-sm sm:text-base">
+                    <a href="contact.html" class="border border-gray-600 hover:border-primary hover:text-primary hover:bg-primary/10 hover:shadow-lg px-6 sm:px-8 py-3 rounded-full transition-all transform hover:scale-105 hover:-translate-y-1 text-sm sm:text-base">
                         Get In Touch
                     </a>
                 </div>
                 <div class="flex justify-center space-x-6">
-                    <a href="https://github.com/trust-benard" class="text-xl sm:text-2xl hover:text-primary transition-colors transform hover:scale-110">
+                    <a href="https://github.com/trust-benard" class="text-xl sm:text-2xl hover:text-primary transition-all duration-300 transform hover:scale-125 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/25 p-2 rounded-full hover:bg-primary/10">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/trust-benard-9487a7376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-xl sm:text-2xl hover:text-primary transition-colors transform hover:scale-110">
+                    <a href="https://www.linkedin.com/in/trust-benard-9487a7376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-xl sm:text-2xl hover:text-primary transition-all duration-300 transform hover:scale-125 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/25 p-2 rounded-full hover:bg-primary/10">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://twitter.com/BenardTrust" class="text-xl sm:text-2xl hover:text-primary transition-colors transform hover:scale-110">
+                    <a href="https://twitter.com/BenardTrust" class="text-xl sm:text-2xl hover:text-primary transition-all duration-300 transform hover:scale-125 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/25 p-2 rounded-full hover:bg-primary/10">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
@@ -130,20 +239,20 @@
     <section class="py-16 bg-dark">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
-                <div>
-                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">50+</div>
+                <div class="hover:scale-110 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2 hover:text-primary/80 transition-colors">50+</div>
                     <div class="text-sm sm:text-base text-gray-400">Projects Completed</div>
                 </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">32+</div>
+                <div class="hover:scale-110 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2 hover:text-primary/80 transition-colors">32+</div>
                     <div class="text-sm sm:text-base text-gray-400">Happy Clients</div>
                 </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">4+</div>
+                <div class="hover:scale-110 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2 hover:text-primary/80 transition-colors">4+</div>
                     <div class="text-sm sm:text-base text-gray-400">Years Experience</div>
                 </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">100%</div>
+                <div class="hover:scale-110 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2 hover:text-primary/80 transition-colors">100%</div>
                     <div class="text-sm sm:text-base text-gray-400">Client Satisfaction</div>
                 </div>
             </div>

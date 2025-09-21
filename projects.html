@@ -3,7 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Trust Benard</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Web Development Projects Portfolio - Trust Benard | JavaScript, WordPress & 3D Animations</title>
+    <meta name="title" content="Web Development Projects Portfolio - Trust Benard | JavaScript, WordPress & 3D Animations">
+    <meta name="description" content="Explore Trust Benard's web development portfolio featuring 50+ projects including interactive games, 3D animations, WordPress sites, automation tools, and modern web applications. View live demos and source code.">
+    <meta name="keywords" content="Trust Benard projects, web development portfolio, JavaScript projects, WordPress development, 3D animations, GSAP projects, interactive games, automation tools, web applications, Nigeria developer portfolio">
+    <meta name="author" content="Trust Benard">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trust-benard.github.io/my-portfolio/projects.html">
+    <meta property="og:title" content="Web Development Projects Portfolio - Trust Benard">
+    <meta property="og:description" content="Explore 50+ web development projects including interactive games, 3D animations, WordPress sites, and automation tools by Trust Benard.">
+    <meta property="og:image" content="https://trust-benard.github.io/my-portfolio/assets/img/projects-portfolio.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://trust-benard.github.io/my-portfolio/projects.html">
+    <meta property="twitter:title" content="Web Development Projects Portfolio - Trust Benard">
+    <meta property="twitter:description" content="50+ web development projects including games, animations, and web apps by Trust Benard.">
+    <meta property="twitter:image" content="https://trust-benard.github.io/my-portfolio/assets/img/projects-portfolio.jpg">
+    <meta property="twitter:creator" content="@BenardTrust">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://trust-benard.github.io/my-portfolio/projects.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Trust Benard Web Development Portfolio",
+      "description": "Collection of web development projects showcasing skills in JavaScript, WordPress, 3D animations, and automation",
+      "author": {
+        "@type": "Person",
+        "name": "Trust Benard",
+        "url": "https://trust-benard.github.io/my-portfolio/"
+      },
+      "url": "https://trust-benard.github.io/my-portfolio/projects.html",
+      "workExample": [
+        {
+          "@type": "WebApplication",
+          "name": "3D Automotive Portfolio",
+          "description": "Modern automotive portfolio with GSAP animations and 3D effects",
+          "url": "https://auto-focus.netlify.app/",
+          "programmingLanguage": ["JavaScript", "CSS3", "HTML5"]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Vibes Admin Dashboard",
+          "description": "Interactive admin dashboard with tools and animations",
+          "programmingLanguage": ["JavaScript", "HTML5", "CSS3"]
+        }
+      ]
+    }
+    </script>
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,15 +89,15 @@
     <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="flex items-center">
+                <a href="index.html" class="flex items-center hover:scale-110 transition-transform duration-300">
                     <img src="assets/logo.svg" alt="Trust Benard" class="h-8 w-auto">
                 </a>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
-                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
-                    <a href="projects.html" class="text-primary">Projects</a>
-                    <a href="resume.html" class="hover:text-primary transition-colors">Resume</a>
-                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <a href="index.html" class="hover:text-primary hover:scale-110 transition-all duration-300">Home</a>
+                    <a href="about.html" class="hover:text-primary hover:scale-110 transition-all duration-300">About</a>
+                    <a href="projects.html" class="text-primary hover:scale-110 transition-all duration-300">Projects</a>
+                    <a href="resume.html" class="hover:text-primary hover:scale-110 transition-all duration-300">Resume</a>
+                    <a href="contact.html" class="hover:text-primary hover:scale-110 transition-all duration-300">Contact</a>
                     <button id="theme-toggle" class="ml-4 relative w-16 h-8 bg-gray-700 rounded-full p-1 transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary">
                         <div class="absolute inset-0 flex items-center justify-between px-2 text-xs">
                             <i class="fas fa-sun text-yellow-400"></i>
@@ -56,18 +118,18 @@
                             <i class="fas fa-sun text-yellow-500 text-sm" id="mobile-theme-icon"></i>
                         </div>
                     </button>
-                    <button class="text-white" id="mobile-menu-btn">
+                    <button class="text-white hover:text-primary hover:scale-110 transition-all duration-300" id="mobile-menu-btn">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
-                    <a href="index.html" class="hover:text-primary transition-colors py-2">Home</a>
-                    <a href="about.html" class="hover:text-primary transition-colors py-2">About</a>
-                    <a href="projects.html" class="text-primary py-2">Projects</a>
-                    <a href="resume.html" class="hover:text-primary transition-colors py-2">Resume</a>
-                    <a href="contact.html" class="hover:text-primary transition-colors py-2">Contact</a>
+                    <a href="index.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">Home</a>
+                    <a href="about.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">About</a>
+                    <a href="projects.html" class="text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">Projects</a>
+                    <a href="resume.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">Resume</a>
+                    <a href="contact.html" class="hover:text-primary hover:scale-105 hover:bg-primary/10 rounded-lg transition-all duration-300 py-2">Contact</a>
                 </div>
             </div>
         </div>
@@ -92,7 +154,7 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">HTML5</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS3</span>
                         </div>
-                        <a href="games.html" class="text-primary hover:underline">
+                        <a href="games.html" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             Play Games <i class="fas fa-play ml-1"></i>
                         </a>
                     </div>
@@ -111,7 +173,7 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">API</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS3</span>
                         </div>
-                        <a href="qr-generator.html" class="text-primary hover:underline">
+                        <a href="qr-generator.html" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             Generate QR <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -130,14 +192,31 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Twitter API</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Google Sheets</span>
                         </div>
-                        <a href="https://github.com/Trust-benard/xposter" target="_blank" class="text-primary hover:underline">
+                        <a href="https://github.com/Trust-benard/xposter" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Code <i class="fab fa-github ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Boekk Homes -->
+                <!-- 3D Automotive Portfolio -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+                    <img src="assets/img/portfolio/3d-portfolio.jpeg" alt="3D Automotive Portfolio" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">3D Automotive Portfolio</h3>
+                        <p class="text-gray-400 mb-4 px-2 sm:px-0">Modern automotive portfolio template with advanced 3D animations, GSAP ScrollTrigger, and glassmorphism effects.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">GSAP</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">3D CSS</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Animations</span>
+                        </div>
+                        <a href="https://auto-focus.netlify.app/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Boekk Homes -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="175">
                     <img src="assets/img/portfolio/4.jpeg" alt="Boekk Homes" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Boekk Homes</h3>
@@ -147,14 +226,14 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">PHP</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Responsive</span>
                         </div>
-                        <a href="https://boekkhomes.com/" target="_blank" class="text-primary hover:underline">
+                        <a href="https://boekkhomes.com/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Project <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Chaos Admin Dashboard -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="175">
+                <!-- Vibes Admin Dashboard -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-full h-48 bg-gradient-to-br from-red-500 to-orange-600 rounded-t-lg flex items-center justify-center">
                         <i class="fas fa-fire text-6xl text-white"></i>
                     </div>
@@ -166,13 +245,13 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Tools</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Vibes</span>
                         </div>
-                        <a href="chaos-dashboard.html" class="text-primary hover:underline">
+                        <a href="chaos-dashboard.html" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             Feel the Vibes <i class="fas fa-music ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="225">
                     <img src="assets/img/portfolio/1.png" alt="Score Keeper" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Score Keeper</h3>
@@ -182,13 +261,13 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">JavaScript</span>
                         </div>
-                        <a href="https://trust-benard.github.io/scorekeeper/" target="_blank" class="text-primary hover:underline">
+                        <a href="https://trust-benard.github.io/scorekeeper/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Project <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="225">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="250">
                     <img src="assets/img/portfolio/6.png" alt="Jokes App" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Jokes App</h3>
@@ -198,13 +277,13 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">API</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
                         </div>
-                        <a href="https://trust-benard.github.io/jokes/" target="_blank" class="text-primary hover:underline">
+                        <a href="https://trust-benard.github.io/jokes/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Project <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="275">
                     <img src="assets/img/portfolio/7.png" alt="Movie Search" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Movie Search App</h3>
@@ -214,13 +293,13 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">API</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Bootstrap</span>
                         </div>
-                        <a href="https://trust-benard.github.io/movie-search-app/" target="_blank" class="text-primary hover:underline">
+                        <a href="https://trust-benard.github.io/movie-search-app/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Project <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="275">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <img src="assets/img/portfolio/2.png" alt="Portfolio Site" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
@@ -230,13 +309,13 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Responsive</span>
                         </div>
-                        <a href="https://trust-benard.github.io/octography/" target="_blank" class="text-primary hover:underline">
+                        <a href="https://trust-benard.github.io/octography/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Project <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="325">
                     <img src="assets/img/portfolio/3.png" alt="Technical Documentation" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Technical Documentation</h3>
@@ -246,13 +325,13 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">CSS</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">Documentation</span>
                         </div>
-                        <a href="https://trust-benard.github.io/technical-documentation/" target="_blank" class="text-primary hover:underline">
+                        <a href="https://trust-benard.github.io/technical-documentation/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Project <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="325">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="350">
                     <img src="assets/img/portfolio/9.png" alt="Real Estate Site" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Real Estate Website</h3>
@@ -262,7 +341,7 @@
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">PHP</span>
                             <span class="px-2 py-1 bg-primary/20 text-primary text-xs rounded">MySQL</span>
                         </div>
-                        <a href="https://solidrahmenbaukonstrukteure.com/" target="_blank" class="text-primary hover:underline">
+                        <a href="https://solidrahmenbaukonstrukteure.com/" target="_blank" class="text-primary hover:underline hover:text-primary/80 hover:scale-105 transition-all duration-300 inline-block">
                             View Project <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -280,7 +359,7 @@
             <div class="text-center mt-16" data-aos="fade-up">
                 <h2 class="text-2xl font-bold mb-4">Interested in working together?</h2>
                 <p class="text-gray-400 mb-8">I'm always open to discussing new projects and opportunities.</p>
-                <a href="contact.html" class="bg-primary hover:bg-primary/80 px-8 py-3 rounded-full transition-all transform hover:scale-105">
+                <a href="contact.html" class="bg-primary hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/25 px-8 py-3 rounded-full transition-all transform hover:scale-105 hover:-translate-y-1">
                     Get In Touch
                 </a>
             </div>
@@ -457,7 +536,15 @@
 
     <style>
         .project-card {
-            @apply bg-dark-light rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl;
+            @apply bg-dark-light rounded-lg overflow-hidden hover:transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-primary/10;
+        }
+        
+        .project-card:hover img {
+            @apply scale-110 transition-transform duration-300;
+        }
+        
+        .project-card:hover .fas, .project-card:hover .fab {
+            @apply text-primary/80 scale-110 transition-all duration-300;
         }
     </style>
     
